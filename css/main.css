@@ -42,7 +42,7 @@ img {
 	margin: 5%;
 	font-size: .9em;
 	background: rgba(0, 0, 0, .0);
-	min-width: 140px;
+	max-width: 140px;
 }
 
 #aboutMe:hover {
@@ -58,7 +58,7 @@ img {
 	margin: 5%;
 	font-size: .9em;
 	background: rgba(0, 0, 0, .0);
-	min-width: 140px;
+	max-width: 140px;
 }
 
 #assignments:hover {

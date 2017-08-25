@@ -74,7 +74,7 @@ p {
 	margin: 5%;
 	font-size: .9em;
 	background: rgba(0, 0, 0, .0);
-	min-width: 140px;
+	max-width: 140px;
 }
 
 #home:hover {
@@ -90,7 +90,7 @@ p {
 	margin: 5%;
 	font-size: .9em;
 	background: rgba(0, 0, 0, .0);
-	min-width: 140px;
+	max-width: 140px;
 }
 
 #assignments:hover {
