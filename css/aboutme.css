@@ -1,0 +1,103 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html, body {
+	font-family: 'Lato', sans-serif;
+	background: #F8F8F8;
+}
+
+img {
+	max-width: 200px;
+	height: auto;
+	border-radius: 8px;
+	padding-right: 10px;
+	margin: 2%;
+}
+
+@media screen and (max-width: 899px) {
+	.container {
+		text-align: center;
+		margin: 4%;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.container {
+		text-align: center;
+		margin-top: 4%;
+		margin-bottom: 4%;
+		margin-left: 11%;
+		margin-right: 11%;
+	}
+}
+
+@media screen and (min-width: 1300px) {
+	.container {
+		text-align: center;
+		margin-top: 4%;
+		margin-bottom: 4%;
+		margin-left: 22%;
+		margin-right: 22%;
+	}
+}
+
+hr {
+	border-top: 1px solid black;
+	margin-bottom: 6%;
+}
+
+.text {
+	margin: 5%;
+}
+
+p {
+	margin-top: 2%;
+	margin-bottom: 2%;
+	line-height: 23px;
+	text-align: left;
+}
+
+#buttonRow {
+	margin-top: 1%;
+	margin-bottom: 6%;
+}
+
+#home {
+	border-bottom: 1px solid black;
+	border-top: 0;
+	border-right: 0;
+	border-left: 1px solid black;
+	padding: 4%;
+	margin: 5%;
+	font-size: .9em;
+	background: rgba(0, 0, 0, .0);
+	min-width: 140px;
+}
+
+#home:hover {
+	box-shadow: 0px 2px 0px #C8C8C8;
+}
+
+#assignments {
+	border-bottom: 1px solid black;
+	border-top: 0;
+	border-left: 0;
+	border-right: 1px solid black;
+	padding: 4%;
+	margin: 5%;
+	font-size: .9em;
+	background: rgba(0, 0, 0, .0);
+	min-width: 140px;
+}
+
+#assignments:hover {
+	box-shadow: 0px 2px 0px #C8C8C8;
+}
+
+.button-link {
+	text-decoration: none;
+	color: black;
+}
