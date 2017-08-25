@@ -100,3 +100,8 @@ p {
 	text-decoration: none;
 	color: black;
 }
+
+.regular-link {
+	text-decoration: underline;
+	color: black;
+}
