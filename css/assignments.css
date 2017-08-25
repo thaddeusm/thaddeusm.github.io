@@ -100,7 +100,7 @@ p {
 	margin: 2%;
 	font-size: .9em;
 	background: rgba(0, 0, 0, .0);
-	max-width: 140px;
+	min-width: 135px;
 }
 
 #aboutMe:hover {
@@ -116,7 +116,7 @@ p {
 	margin: 2%;
 	font-size: .9em;
 	background: rgba(0, 0, 0, .0);
-	max-width: 140px;
+	min-width: 135px;
 }
 
 #home:hover {
