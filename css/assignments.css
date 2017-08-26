@@ -135,3 +135,8 @@ p {
 form {
 	display: inline;
 }
+
+#footerText {
+	text-align: center;
+	font-size: .8em;
+}
