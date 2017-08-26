@@ -1,5 +1,5 @@
-#IS\_LT 7370 Intermediate Web Development
-##University of Missouri\-Columbia
+# IS\_LT 7370 Intermediate Web Development
+## University of Missouri\-Columbia
 
 These pages were created as an introduction assignment for a graduate course.  The assignments page will gradually include links to projects as the course progresses.
 
