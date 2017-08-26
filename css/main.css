@@ -72,3 +72,7 @@ img {
 	text-decoration: none;
 	color: black;
 }
+
+form {
+	display: inline;
+}

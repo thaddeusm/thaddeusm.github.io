@@ -131,3 +131,7 @@ p {
 	text-decoration: underline;
 	color: black;
 }
+
+form {
+	display: inline;
+}
