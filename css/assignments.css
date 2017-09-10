@@ -33,6 +33,10 @@ blockquote {
 		padding-left: 5%;
 		margin-left: 8%;
 	}
+
+	ul {
+		list-style-position: inside;
+	}
 }
 
 @media screen and (min-width: 900px) {
