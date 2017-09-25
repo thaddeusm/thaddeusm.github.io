@@ -14,7 +14,7 @@
 			"article article article"
 			"footer footer footer";
 		grid-template-columns: 1fr 70px 1fr;
-		grid-template-rows: 100px 175px 1fr .7fr 1fr 100px;
+		grid-template-rows: 65px 170px 1fr .7fr 1fr 100px;
 		text-align: center;
 	}
 
@@ -107,7 +107,7 @@
 	#container {
 		display: grid;
 		grid-template-columns: 9% 1fr 28% 1fr 9%;
-		grid-template-rows: 100px 175px 1fr .7fr 1fr 100px;
+		grid-template-rows: 70px 175px 1fr .7fr 1fr 100px;
 		grid-template-areas: 
 	 		".  showcase . contact ." 
 			"header header header header header"
