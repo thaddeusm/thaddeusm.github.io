@@ -1,4 +1,4 @@
-@media screen and (max-width: 480px) {
+@media only screen and (max-width: 480px) {
 	* {
 		padding: 0;
 		margin: 0;
@@ -28,7 +28,11 @@
 	}
 
 	#contact {
-		align-self: center;
+		padding-top: 12%;
+	}
+
+	#showcase {
+		padding-top: 12%;
 	}
 
 	#contactInfo {
@@ -94,7 +98,7 @@
 	}
 }
 
-@media screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 481px) and (max-width: 768px) {
 	* {
 		padding: 0;
 		margin: 0;
@@ -124,7 +128,11 @@
 	}
 
 	#contact {
-		align-self: center;
+		padding-top: 12%;
+	}
+
+	#showcase {
+		padding-top: 12%;
 	}
 
 	#contactInfo {
@@ -191,10 +199,10 @@
 
 }
 
-@media screen and (min-width: 769px) {
+@media only screen and (min-width: 769px) {
 	#container {
 		display: grid;
-		grid-template-columns: 10% 1fr 1fr 10%;
+		grid-template-columns: 10% 40% 40% 10%;
 		grid-template-rows: 75px 200px 255px 1fr 150px;
 		grid-template-areas: 
 	 		". header contact ." 
@@ -214,6 +222,10 @@
 		padding-left: 65%;
 		padding-right: 2%;
 		text-align: right !important;
+	}
+
+	#showcase {
+		align-self: center;
 	}
 
 	#contactInfo {
@@ -297,7 +309,6 @@ header {
 
 #showcase {
 	grid-area: showcase;
-	align-self: center;
 }
 
 #contact {
