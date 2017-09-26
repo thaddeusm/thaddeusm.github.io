@@ -20,7 +20,7 @@
 		align-self: center;
 		display: grid;
 		grid-template-rows: auto;
-		grid-template-columns: 20% 60% 20%;
+		grid-template-columns: 25% 50% 25%;
 		grid-template-areas: "logo title hamburger";
 		text-align: center;
 	}
@@ -48,11 +48,13 @@
 		grid-area: hamburger;
 		text-align: center;
 		border-left: 2px solid #F1B82E;
+		vertical-align: middle;
 	}
 
 	#hamburgerImage {
 		vertical-align: middle;
-		width: 50px;
+		width: 50%;
+		padding: 10%;
 	}
 
 	article {
