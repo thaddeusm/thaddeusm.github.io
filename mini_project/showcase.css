@@ -6,7 +6,7 @@
 
 	#container {
 		display: grid;
-		grid-template-rows: auto 340px 1fr auto 100px;
+		grid-template-rows: 50px auto 1fr auto 100px;
 		grid-template-columns: 1fr;
 		grid-template-areas: 
 			"header"
@@ -17,7 +17,6 @@
 	}
 
 	header {
-		padding-top: 3%;
 		align-self: center;
 		display: grid;
 		grid-template-rows: auto;
@@ -142,6 +141,7 @@ footer {
 }
 
 .link-box {
+	margin-top: 2%;
 	border: 2px solid #F1B82E;
 	display: inline;
 	float: right;
