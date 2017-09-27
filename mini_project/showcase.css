@@ -118,7 +118,7 @@ aside {
 	display: none;
 	grid-area: aside;
 	background: #F1B82E;
-	height: 100vh;
+	height: 100%;
 	overflow: auto;
 }
 
