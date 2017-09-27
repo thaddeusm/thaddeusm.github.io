@@ -22,7 +22,7 @@
 					<p><img id="phoneImage" src="images/phone.svg" alt="link"> 573-882-1653 / 877-848-9663</p>
 				</section>
 				<section id="hamburger">
-					<button><img id="hamburgerImage" src="images/hamburger.svg" alt="navigation button"></button>
+					<button onclick="handler.showNavigation()"><img id="hamburgerImage" src="images/hamburger.svg" alt="navigation button"></button>
 				</section>
 			</header>
 			<article>
@@ -107,9 +107,9 @@
 				<li><a href="#">Student 15</a></li>
 			</ul>
 			<div id="closeArea">
-				<button>X</button>
+				<button id="closeButton" onclick="handler.hideNavigation()">X</button>
 			</div>
 		</aside>
-		
+		<script type="text/javascript" src="navigation.js"></script>
 	</body>
 </html>
