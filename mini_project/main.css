@@ -1,3 +1,15 @@
+/*
+
+No background images were needed in this design.
+Below is an example of an implementation of this
+feature:
+
+#selector {
+	background-image: url("imageurl.jpg");
+}
+
+*/
+
 @media only screen and (max-width: 480px) {
 	* {
 		padding: 0;
