@@ -10,8 +10,8 @@ body {
 @media screen and (max-width: 700px) {
 	#container {
 		display: grid;
-		grid-template-columns: 5% 1fr 5%;
-		grid-template-rows: 150px 150px auto 100px;
+		grid-template-columns: 5px 1fr 5px;
+		grid-template-rows: 50px 150px auto 100px;
 		grid-template-areas: 
 		". . ."
 		". header ."
@@ -136,8 +136,8 @@ input[type=checkbox] {
 
 select {
 	font-size: 1em;
-	background: none;
-	color: #BFBFBF;
+	background: #BFBFBF;
+	color: #1F3A93;
 }
 
 hr {
@@ -195,8 +195,8 @@ form {
 input[type=tel] {
 	font-size: 1.2em;
 	padding: 10px;
-	width: 7%;
-	min-width: 60px;
+	width: 10%;
+	min-width: 70px;
 	margin-left: 18%;
 	margin-right: 18%;
 	margin-bottom: 30px;
