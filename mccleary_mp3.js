@@ -40,12 +40,14 @@ var officials = {
 
 		console.log(data);
 		var people = data.officials;
+		var officesData = data.offices;
 
 		var namesData = [];
 		var imagesData = [];
 		var socialData = [];
 		var websitesData = [];
 		var partyData = [];
+		var offices = [];
 		for (var i=0; i<people.length; i++) {
 			if (people[i].name != null) {
 				namesData.push(people[i].name);
@@ -79,9 +81,11 @@ var officials = {
 			}
 		}
 
-		var officesData = data.offices;
-
-		var offices = [officesData[0].name, officesData[0].name, officesData[1].name];
+		if (officesData.length = 1) {
+			offices = [officesData[0].name, officesData[0].name];
+		} else {
+			offices = [officesData[0].name, officesData[0].name, officesData[1].name];
+		}
 
 		var senators = {
 			names: namesData,
@@ -215,6 +219,15 @@ var view = {
 			e.preventDefault();
 		});
 	},
+	convertTitle: function() {
+		var h1 = document.querySelector('h1');
+
+		h1.addEventListener('click', function() {
+			location.reload(true);
+		});
+
+		h1.style.cursor = 'pointer';
+	},
 	restoreBorder: function(element) {
 		element.style.borderBottom = '2px solid #BDC3C7';
 	},
@@ -268,8 +281,10 @@ var view = {
 				anchor.innerHTML = 'Website';
 				div.appendChild(anchor);
 			}
-			
+		
 		}
+
+		view.convertTitle();
 	}
 };
 
