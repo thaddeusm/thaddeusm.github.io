@@ -10,26 +10,47 @@ body {
 @media screen and (max-width: 700px) {
 	#container {
 		display: grid;
-		grid-template-columns: 5px 1fr 5px;
-		grid-template-rows: 50px 150px auto 100px;
+		grid-template-columns: 10px 1fr 10px;
+		grid-template-rows: 50px 120px auto 120px;
 		grid-template-areas: 
 		". . ."
 		". header ."
 		". form ."
 		". footer .";
 	}
+
+	#officials > div {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-rows: auto auto auto auto;
+		grid-template-areas: 
+			". profile-image profile-image ."
+			"h3 h3 h3 h3"
+			"h5 h5 h5 h5"
+			"anchor anchor anchor anchor";
+		text-align: center;
+	}
 }
 
 @media screen and (min-width: 701px) {
 	#container {
 		display: grid;
-		grid-template-columns: 25% 1fr 25%;
-		grid-template-rows: 150px 150px auto 100px;
+		grid-template-columns: 15% 1fr 15%;
+		grid-template-rows: 120px 100px auto 120px;
 		grid-template-areas: 
 		". . ."
 		". header ."
 		". form ."
 		". footer .";
+	}
+
+	#officials > div {
+		grid-template-columns: 40% 1fr;
+		grid-template-rows: 1fr 1fr 1fr 1fr;
+		grid-template-areas: 
+			"profile-image ."
+			"profile-image h3"
+			"profile-image h5"
+			"profile-image anchor";
 	}
 }
 
@@ -47,6 +68,7 @@ h1 {
 main {
 	grid-area: form;
 	font-family: 'Lato', sans-serif;
+	margin-bottom: 70px;
 }
 
 footer {
@@ -54,7 +76,6 @@ footer {
 	text-align: center;
 	font-family: 'Lato', sans-serif;
 	color: #BFBFBF;
-	margin-top: 70px;
 }
 
 footer > p {
@@ -218,14 +239,18 @@ input[type=tel]:focus {
 h3 {
 	display: inline-block;
 	font-family: 'Oswald', sans-serif;
+	font-size: 1.9em;
 	color: #87D37C;
+	margin-top: 5px;
+	grid-area: h3;
 }
 
 h5 {
 	display: inline-block;
 	font-family: 'Lato', sans-serif;
+	font-size: 1.4em;
 	color: #BDC3C7;
-	margin-left: 5px;
+	grid-area: h5;
 }
 
 #officials {
@@ -233,15 +258,22 @@ h5 {
 }
 
 #officials > div {
-	margin: 7%;
+	margin: 5%;
+	padding: 2%;
 	border: 1px dotted #ECECEC;
 	background: rgba(52, 73, 94, .8);
+	display: grid;
 }
 
 .profile-image {
-	width: 15%;
-	max-width: 300px;
+	width: 92%;
+	max-width: 250px;
 	border-radius: 5px;
-	margin: 20px;
+	margin: 5px;
 	vertical-align: middle;
+	grid-area: profile-image;
+}
+
+.website-link {
+	grid-area: anchor;
 }

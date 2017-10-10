@@ -37,18 +37,45 @@ var officials = {
 	},
 	organizeSenators: function() {
 		var data = JSON.parse(this.responseText);
+
+		console.log(data);
 		var people = data.officials;
 
 		var namesData = [];
 		var imagesData = [];
 		var socialData = [];
 		var websitesData = [];
+		var partyData = [];
 		for (var i=0; i<people.length; i++) {
-			namesData.push(people[i].name);
-			socialData.push(people[i].channels);
-			websitesData.push(people[i].urls[0]);
+			if (people[i].name != null) {
+				namesData.push(people[i].name);
+			} else {
+				namesData.push('none');
+			}
+			
+			if (people[i].channels != null) {
+				socialData.push(people[i].channels);
+			} else {
+				socialData.push('none');
+			}
+
+			if (people[i].party != null) {
+				partyData.push(people[i].party)
+			} else {
+				partyData.push('none');
+			}
+			
+			
+			if (people[i].urls != null) {
+				websitesData.push(people[i].urls[0]);
+			} else {
+				websitesData.push('none');
+			}
+
 			if (officials.images == true) {
 				imagesData.push(people[i].photoUrl);
+			} else {
+				imagesData.push('none');
 			}
 		}
 
@@ -61,13 +88,15 @@ var officials = {
 			images: imagesData,
 			social: socialData,
 			websites: websitesData,
-			titles: offices
+			titles: offices,
+			parties: partyData
 		};
 
 		view.constructElements(senators);
 	},
 	organizeReps: function() {
 		var data = JSON.parse(this.responseText);
+		console.log(data);
 		var people = data.officials;
 		var officesData = data.offices;
 
@@ -76,13 +105,42 @@ var officials = {
 		var socialData = [];
 		var websitesData = [];
 		var offices = [];
+		var partyData = [];
 		for (var i=0; i<people.length; i++) {
-			namesData.push(people[i].name);
-			socialData.push(people[i].channels);
-			websitesData.push(people[i].urls[0]);
-			offices.push(officesData[i].name);
+			if (people[i].name != null) {
+				namesData.push(people[i].name);
+			} else {
+				namesData.push('none');
+			}
+
+			if (people[i].party != null) {
+				partyData.push(people[i].party)
+			} else {
+				partyData.push('none');
+			}
+
+			if (people[i].channels != null) {
+				socialData.push(people[i].channels);
+			} else {
+				socialData.push('none');
+			}
+
+			if (people[i].urls != null) {
+				websitesData.push(people[i].urls[0]);
+			} else {
+				websitesData.push('none');
+			}
+
+			if (officesData[i] != null) {
+				offices.push(officesData[i].name);
+			} else {
+				offices.push(officesData[officesData.length-1].name);
+			}
+			
 			if (officials.images == true) {
 				imagesData.push(people[i].photoUrl);
+			} else {
+				imagesData.push('none');
 			}
 		}
 
@@ -91,10 +149,14 @@ var officials = {
 			images: imagesData,
 			social: socialData,
 			websites: websitesData,
-			titles: offices
+			titles: offices,
+			parties: partyData
 		};
 
-		view.constructElements(reps);
+		setTimeout(function() {
+			view.constructElements(reps);
+		}, 600);
+
 		view.displayOfficials();
 	}
 };
@@ -170,28 +232,43 @@ var view = {
 
 		for (var i=0; i<house.names.length; i++) {
 			var div = document.createElement('div');
+			div.setAttribute("class", "official-info");
 			section.appendChild(div);
 			
-			if (house.images[i] != undefined) {
+			if (house.images[i] != undefined && house.images[i] != 'none') {
 				var img = document.createElement('img');
 				img.setAttribute("class", "profile-image");
 				img.setAttribute("src", house.images[i]);
 				div.appendChild(img);
 			}
-			var nameText = document.createElement('h3');
-			nameText.innerHTML = house.names[i] + '<br>';
 
-			var titleText = document.createElement('h5');
-			titleText.innerHTML = house.titles[i];
-			div.appendChild(nameText);
-			div.appendChild(titleText);
+			if (house.names[i] != undefined && house.names[i] != 'none') {
+				var nameText = document.createElement('h3');
+				nameText.innerHTML = house.names[i];
+				div.appendChild(nameText);
+			}
 
-			if (house.websites[i] != undefined) {
+			if (house.parties[i] != undefined && house.parties[i] != 'none') {
+				var span = document.createElement('span');
+				span.innerHTML = ' (' + house.parties[i][0] + ')';
+				nameText.appendChild(span);
+			}
+
+			if (house.titles[i] != undefined && house.titles[i] != 'none') {
+				var titleText = document.createElement('h5');
+				titleText.innerHTML = house.titles[i];
+				div.appendChild(titleText);
+			}
+
+			if (house.websites[0] != undefined && house.websites[i] != 'none') {
 				var anchor = document.createElement('a');
 				anchor.setAttribute("href", house.websites[i]);
 				anchor.setAttribute("target", "_blank");
+				anchor.setAttribute("class", "website-link");
+				anchor.innerHTML = 'Website';
 				div.appendChild(anchor);
 			}
+			
 		}
 	}
 };
