@@ -4,7 +4,7 @@
 }
 
 body {
-	background: #1F3A93;
+	background: #22313F;
 }
 
 @media screen and (max-width: 700px) {
@@ -57,7 +57,7 @@ body {
 header {
 	grid-area: header;
 	text-align: center;
-	color: #87D37C;
+	color: #F22613;
 }
 
 h1 {
@@ -89,7 +89,7 @@ a {
 
 a:hover {
 	text-decoration: underline;
-	color: #87D37C;
+	color: #F22613;
 }
 
 label {
@@ -98,7 +98,7 @@ label {
 	line-height: 2;
 	padding-right: 5px;
 	padding-left: 20px;
-	color: #87D37C;
+	color: #F22613;
 }
 
 input[type=text] {
@@ -158,7 +158,7 @@ input[type=checkbox] {
 select {
 	font-size: 1em;
 	background: #BFBFBF;
-	color: #1F3A93;
+	color: #22313F;
 }
 
 hr {
@@ -172,7 +172,7 @@ hr {
 }
 
 #startButton {
-	border: 2px solid #87D37C;
+	border: 2px solid #F22613;
 	border-radius: 100px;
 	padding: 20px;
 	outline: 0;
@@ -199,7 +199,7 @@ form {
 
 #submit {
 	margin-top: 20px;
-	border: 2px solid #87D37C;
+	border: 2px solid #F22613;
 	border-radius: 100px;
 	padding-left: 22px;
 	padding-right: 22px;
@@ -209,7 +209,7 @@ form {
 	background: none;
 	cursor: pointer;
 	font-size: 1.2em;
-	color: #87D37C;
+	color: #F22613;
 	font-family: 'Oswald', sans-serif;
 }
 
@@ -240,7 +240,7 @@ h3 {
 	display: inline-block;
 	font-family: 'Oswald', sans-serif;
 	font-size: 1.9em;
-	color: #87D37C;
+	color: #F22613;
 	margin-top: 5px;
 	grid-area: h3;
 }

@@ -232,7 +232,7 @@ var view = {
 		element.style.borderBottom = '2px solid #BDC3C7';
 	},
 	displayError: function(element) {
-		element.style.borderBottom = '2px solid #F22613';
+		element.style.borderBottom = '2px solid #EC644B';
 	},
 	displayOfficials(house) {
 		this.hide('form');
