@@ -1,6 +1,7 @@
 var officials = {
 	urlBase: 'https://www.googleapis.com/civicinfo/v2/representatives?key=AIzaSyCD-IbsX7zkODgJDUtduyN1guGWUETdVdQ',
 	images: true,
+	houses: 0,
 	buildURL: function(address, city, state, zip, national) {
 		var formattedAddress = address.split(' ').join('%20');
 
@@ -40,7 +41,6 @@ var officials = {
 
 		console.log(data);
 		var people = data.officials;
-		var officesData = data.offices;
 
 		var namesData = [];
 		var imagesData = [];
@@ -79,12 +79,16 @@ var officials = {
 			} else {
 				imagesData.push('none');
 			}
-		}
 
-		if (officesData.length = 1) {
-			offices = [officesData[0].name, officesData[0].name];
-		} else {
-			offices = [officesData[0].name, officesData[0].name, officesData[1].name];
+			if (people[i].address[0] != null) {
+				var addressState = people[i].address[0].state;
+
+				if (addressState == 'DC') {
+					offices.push('United States Senate');
+				} else {
+					offices.push(addressState + ' State Senate');
+				}
+			}
 		}
 
 		var senators = {
@@ -204,6 +208,9 @@ var controller = {
 
 		officials.buildURL(address, city, state, zip, national);
 
+	},
+	reloadPage: function() {
+		view.reloadPage();
 	}
 };
 
@@ -219,11 +226,14 @@ var view = {
 			e.preventDefault();
 		});
 	},
+	reloadPage: function() {
+		location.reload(true);
+	},
 	convertTitle: function() {
 		var h1 = document.querySelector('h1');
 
 		h1.addEventListener('click', function() {
-			location.reload(true);
+			this.reloadPage();
 		});
 
 		h1.style.cursor = 'pointer';
@@ -252,6 +262,7 @@ var view = {
 				var img = document.createElement('img');
 				img.setAttribute("class", "profile-image");
 				img.setAttribute("src", house.images[i]);
+				img.setAttribute("alt", "Representative Profile Image");
 				div.appendChild(img);
 			}
 
@@ -284,7 +295,36 @@ var view = {
 		
 		}
 
-		view.convertTitle();
+		officials.houses++;
+
+		if (officials.houses == 2) {
+			this.convertTitle();
+			this.addReturnButton();
+		}
+	},
+	addReturnButton: function() {
+		var section = document.getElementById('officials');
+
+		var span = document.createElement('span');
+		span.setAttribute("class", "return");
+		section.appendChild(span);
+
+
+		var button = document.createElement('button');
+		button.setAttribute("class", "text-button");
+		button.setAttribute("onclick", "controller.reloadPage()");
+		button.innerHTML = 'Return';
+		span.appendChild(button);
+
+		this.addDisclaimer();
+	},
+	addDisclaimer: function() {
+		var section = document.getElementById('officials');
+
+		var span = document.createElement('span');
+		span.setAttribute("class", "return footer");
+		span.innerHTML = '&#42; Quality of details provided by state may vary.'
+		section.appendChild(span);
 	}
 };
 

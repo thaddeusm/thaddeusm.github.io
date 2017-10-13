@@ -14,7 +14,7 @@
 		</header>
 		<main>
 			<section id="startArea">
-				<button type="button" id="startButton" onclick="controller.openForm('#startArea')"><img src="images/map-search.svg" id="mapSearchIcon"></button>
+				<button type="button" id="startButton" onclick="controller.openForm('#startArea')"><img src="../images/map-search.svg" id="mapSearchIcon"></button>
 			</section>
 			<form id="searchForm" name="searchForm">
 				<input type="text" name="address" id="address" placeholder="Street address">
@@ -87,7 +87,7 @@
 				<label class="radio-label" for="images"><input type="radio" name="images" id="withoutImages" value="without"><span> without</span>
 				</label><br>
 				<hr>
-				<button id="submit" onclick="controller.validate()">Search</button>
+				<button id="submit" class="text-button" onclick="controller.validate()">Search</button>
 			</form>
 			<section id="officials">
 				
