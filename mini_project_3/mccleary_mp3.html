@@ -14,14 +14,14 @@
 		</header>
 		<main>
 			<section id="startArea">
-				<button type="button" id="startButton" onclick="controller.openForm('#startArea')"><img src="../images/map-search.svg" id="mapSearchIcon"></button>
+				<button type="button" id="startButton" onclick="controller.openForm('#startArea')"><img src="../images/map-search.svg" id="mapSearchIcon" alt="Search Icon"></button>
 			</section>
 			<form id="searchForm" name="searchForm">
 				<input type="text" name="address" id="address" placeholder="Street address">
 				<hr>
 				<input type="text" name="city" id="city" placeholder="City">
 				<hr>
-				<label for="list"><span>State</span></label>
+				<label for="stateList"><span>State</span></label>
 				<select name="list" id="stateList">
 					<option value="AL">Alabama</option>
 					<option value="AK">Alaska</option>
@@ -84,7 +84,7 @@
 				<label class="radio-label" for="images">
 					<input type="radio" name="images" id="images" value="with" checked><span> with images</span>
 				</label>
-				<label class="radio-label" for="images"><input type="radio" name="images" id="withoutImages" value="without"><span> without</span>
+				<label class="radio-label" for="withoutImages"><input type="radio" name="images" id="withoutImages" value="without"><span> without</span>
 				</label><br>
 				<hr>
 				<button id="submit" class="text-button" onclick="controller.validate()">Search</button>
