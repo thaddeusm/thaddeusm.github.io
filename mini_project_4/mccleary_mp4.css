@@ -37,6 +37,11 @@ button {
 	width: 165px;
 	height: 115px;
 	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 }
 
 button > img {
