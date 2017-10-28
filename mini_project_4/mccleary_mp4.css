@@ -34,8 +34,9 @@ section {
 
 button {
 	padding: 4px;
-	width: 150px;
-	height: 100px;
+	width: 155px;
+	height: 105px;
+	border-radius: 1;
 }
 
 button > img {
