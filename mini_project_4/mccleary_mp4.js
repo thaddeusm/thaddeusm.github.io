@@ -102,7 +102,7 @@ var view = {
 
 		anchor.setAttribute('href', gallery.images[index].source);
 		anchor.setAttribute('target', '_blank');
-		anchor.innerHTML = "- StockSnap.io";
+		anchor.innerHTML = "from StockSnap.io";
 		caption.appendChild(anchor);
 		return caption;
 	},
