@@ -20,7 +20,6 @@ function getAspectRatio() {
 }
 
 
-var thumbnail = document.querySelector('.thumbnail');
 var galleryMain = document.getElementById('galleryMain');
 var ul = document.querySelector('ul');
 

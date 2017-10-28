@@ -34,10 +34,13 @@ section {
 
 button {
 	padding: 4px;
+	width: 150px;
+	height: 100px;
 }
 
 button > img {
 	width: 150px;
+	height: 100px;
 }
 
 ul {
