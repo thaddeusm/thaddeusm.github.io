@@ -228,6 +228,10 @@ footer {
 	color: #112233;
 }
 
+a {
+	color: #44BBFF;
+}
+
 a:visited {
 	color: #FC575E;
 }
