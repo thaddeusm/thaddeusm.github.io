@@ -1,0 +1,49 @@
+<!--
+
+-clickable elements with a lightbox effect
+-pure css dropdown navigation bar
+-use AJAX to send information and display results as a result of user interaction
+
+Add the topic to the main area All About ____.
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Mini Project 5 | Dynamic Galleries</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link href="https://fonts.googleapis.com/css?family=Catamaran|Fjalla+One" rel="stylesheet">
+</head>
+<body>
+	<section id="galleryBuilder">
+		<input type="text" name="keyword">
+		<button type="button" id="submit" onclick="controller.startKeywordSearch()"><img src="images/check.svg"></button>
+	</section>
+	<div class="container">
+		<header>
+			<h1>Dynamic Galleries</h1>
+			<div id="dropdown">
+				<button id="create" type="button">Create Your Own</button>
+				<div id="dropdownContent">
+					<button id="searchButton" type="button" onclick="controller.promptKeyword()">Keyword Search <img src="images/search.svg"></button>
+					<button id="randomButton" onclick="controller.startRandom()" type="button">Random Gallery <img src="images/random.svg"></button>
+				</div>
+			</div>
+		</header>
+		<main>
+			<h2>All about <span id="keyword"></span>.</h2>
+			<section id="gallery"></section>
+		</main>
+		<footer>
+			<p>Powered by <a href="https://www.flickr.com/services/api/" target="_blank">Flickr</a></p>
+		</footer>
+	</div>
+	<div id="lightbox">
+		<div id="centeredImage"></div>			
+	</div>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
