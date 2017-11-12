@@ -114,6 +114,19 @@ var controller = {
 			}
 		});
 
+		window.addEventListener('touchstart', function(e) {
+			if (e.target.id != 'create' && e.target.id != 'searchButton' && e.target.id != 'randomButton') {
+				view.hideElement('#dropdownContent');
+			}
+
+			console.log(e);
+			if (e.target.tagName != 'img') {
+				view.emptyElement('#centeredImage');
+				view.hideElement('#lightbox');
+				view.displayElement('.container');
+			}
+		});
+
 		create.addEventListener('mouseover', function() {
 			view.displayElement('#dropdownContent');
 		});
