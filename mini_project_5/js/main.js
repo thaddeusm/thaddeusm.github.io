@@ -106,7 +106,14 @@ var controller = {
 				view.hideElement('#dropdownContent');
 			}
 
-			console.log(e);
+			if (e.target.id == 'lightbox') {
+				view.emptyElement('#centeredImage');
+				view.hideElement('#lightbox');
+				view.displayElement('.container');
+			}
+		});
+
+		document.getElementById('lightbox').addEventListener('touchstart', click() {
 			if (e.target.id == 'lightbox') {
 				view.emptyElement('#centeredImage');
 				view.hideElement('#lightbox');
