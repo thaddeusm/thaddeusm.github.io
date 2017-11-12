@@ -106,7 +106,8 @@ var controller = {
 				view.hideElement('#dropdownContent');
 			}
 
-			if (e.target.id == 'lightbox') {
+			console.log(e);
+			if (e.target.tagName != 'img') {
 				view.emptyElement('#centeredImage');
 				view.hideElement('#lightbox');
 				view.displayElement('.container');
