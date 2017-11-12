@@ -1,5 +1,16 @@
+/* 
+
+This is a MVC application that meets project requirements by:
+- responding to user interactions with an AJAX call to the Flickr API
+- dynamically updating the page with content from Flickr
+- implementing a lightbox effect on all thumbnails
+
+*/
+
+// model layer for the application
 var gallery = {
 	images: [],
+	// pool of search terms for use in random keyword calls
 	randomSearchTerms: [
 		'pizzas',
 		'fires',
@@ -14,11 +25,13 @@ var gallery = {
 		'houses',
 		'flags'
 	],
+	// uses JavaScript's Math.random() function to choose a random keyword
 	searchRandom: function() {
 		var randomNumber = Math.floor(Math.random() * this.randomSearchTerms.length);
 		this.searchWithKeyword(this.randomSearchTerms[randomNumber]);
 		view.displayKeyword(this.randomSearchTerms[randomNumber]);
 	},
+	// processes a user's provided keyword
 	searchWithKeyword: function(keyword) {
 		var baseUrl = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=3542b6ec7dddcef2f2894e464453b984&format=json&nojsoncallback=1';
 		var option = '&text=';
@@ -30,12 +43,14 @@ var gallery = {
 
 		this.apiRequest(url);
 	},
+	// initiates a request to the Flickr API
 	apiRequest: function(url) {
 		var request = new XMLHttpRequest();
 		request.open('GET', url);
 		request.send();
 		request.addEventListener('load', this.receiveImagePool);
 	},
+	// processes the response from Flickr with basic error handling
 	receiveImagePool: function(e) {
 		var response = e.target.response;
 		var jsonData = JSON.parse(response);
@@ -51,6 +66,7 @@ var gallery = {
 		view.printThumbnails();	
 		}
 	},
+	// creates a URL to the original thumbnail image per Flickr API documentation
 	buildUrl: function(photo) {
 
 		var farm = photo.farm;
@@ -69,6 +85,7 @@ var gallery = {
 	}
 };
 
+// controller layer handles interactions from the user
 var controller = {
 	startRandom: function() {
 		gallery.images = [];
@@ -140,6 +157,7 @@ var controller = {
 	}
 };
 
+// view layer handles visual feedback
 var view = {
 	displayElement: function(element) {
 		document.querySelector(element).style.display = 'block';
@@ -186,9 +204,11 @@ var view = {
 
 		return caption;
 	},
+	// gives visual feedback if input is blank
 	notifyError: function() {
 		document.querySelector('input').style.borderBottom = '2px solid #FC575E';
 	},
+	// handles lightbox view
 	displayLightbox: function(sourceImage) {
 		var image = sourceImage.cloneNode();
 
@@ -206,6 +226,7 @@ var view = {
 		this.hideElement('.container');
 		lightbox.style.display = 'grid';
 	},
+	// ensures that keyword displayed is in a plural form
 	displayKeyword: function(keyword) {
 		if (keyword[keyword.length - 1] != 's') {
 			keyword += '(s)';
