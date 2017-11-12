@@ -270,4 +270,10 @@ button {
 	color: #F0F1F5;
 	background: none;
 	outline: none;
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 }
