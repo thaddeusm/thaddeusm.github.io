@@ -263,3 +263,11 @@ button {
 	margin-left: auto;
 	margin-right: auto;
 }
+
+#close {
+	border: none;
+	font-size: 2em;
+	color: #F0F1F5;
+	background: none;
+	outline: none;
+}

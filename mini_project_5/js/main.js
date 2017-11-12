@@ -113,12 +113,10 @@ var controller = {
 			}
 		});
 
-		document.getElementById('lightbox').addEventListener('touchstart', function() {
-			if (e.target.id == 'lightbox') {
-				view.emptyElement('#centeredImage');
-				view.hideElement('#lightbox');
-				view.displayElement('.container');
-			}
+		document.getElementById('close').addEventListener('click', function() {
+			view.emptyElement('#centeredImage');
+			view.hideElement('#lightbox');
+			view.displayElement('.container');
 		});
 
 		create.addEventListener('mouseover', function() {
