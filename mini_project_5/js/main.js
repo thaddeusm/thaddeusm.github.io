@@ -113,7 +113,7 @@ var controller = {
 			}
 		});
 
-		document.getElementById('lightbox').addEventListener('touchstart', click() {
+		document.getElementById('lightbox').addEventListener('touchstart', function() {
 			if (e.target.id == 'lightbox') {
 				view.emptyElement('#centeredImage');
 				view.hideElement('#lightbox');
