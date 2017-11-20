@@ -3,15 +3,27 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Making Connections | How to Combine APIs</title>
+	<title>Making Connections | The Concept</title>
 	<link rel="stylesheet" type="text/css" href="main.css">
 	<link href="https://fonts.googleapis.com/css?family=Cantarell|Viga" rel="stylesheet">
+	<script src="https://connect.soundcloud.com/sdk/sdk-3.3.0.js"></script>
 </head>
-<body>
+<body onresize="ui.checkScreenWidth()">
 	<div class="container">
 		<header>
 			<h1>Combining APIs</h1>
-			<h3>Why? How?</h3>
+			<aside>
+				<ul>
+					<li>1. The Concept</li>
+					<li><a href="2_the_apis.html">2. The APIs</a></li>
+					<li><a href="3_stream_music.html">3. Steam Music</a></li>
+					<li><a href="4_find_lyrics.html">4. Find Lyrics</a></li>
+					<li><a href="5_cooperate.html">5. Cooperate</a></li>
+					<li><a href="6_walkthrough.html">6. Walkthrough</a></li>
+					<li><a href="7_the_player.html">7. The Player</a></li>
+				</ul>
+			</aside>
+			<button id="menuButton" type="button" onclick="ui.toggleMenu()"><img src="media/hamburger.svg" alt="Menu Icon"></button>
 		</header>
 		<main>
 			<p>Opportunities abound for front-end web developers to improve their skills through small projects.  Client-side games, data visualizations, and browser-based tools allow you to learn by doing, applying existing knowledge practically and stretching skills when encountering errors.  Whether developing a portfolio of these types of projects helps a new developer find employment is unclear, but the process is certainly beneficial to learning.  Code schools and 'bootcamps' develop curricula that are based around projects, understanding that putting new information into practice is essential in supporting career readiness.</p>
