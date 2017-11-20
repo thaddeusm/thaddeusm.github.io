@@ -25,24 +25,32 @@ SC.get('/tracks', {
 var ui = {
 	iconDisplay: false,
 	toggleMenu: function() {
-		var menuIcon = document.getElementById('menuButton');
-
-		var aside = document.querySelector('aside');
+		
 
 		this.iconDisplay = !this.iconDisplay;
 
 		if (this.iconDisplay == true) {
-			aside.style.display = 'block';
+			this.showMenu();
 		} else {
-			aside.style.display = 'none';
+			this.hideMenu();
 		}
+	},
+	hideMenu: function() {
+		var aside = document.querySelector('aside');
+		aside.style.display = 'none';
+	},
+	showMenu: function() {
+		var aside = document.querySelector('aside');
+		aside.style.display = 'block';
 	},
 	checkScreenWidth: function() {
 		var body = document.querySelector('body');
 	    var width = body.offsetWidth;
 	    
 	    if (width > 1201) {
-	      this.toggleMenu();
-	    } 
+	    	this.showMenu();
+	    } else {
+	    	this.hideMenu();
+	    }
 	}
 };
