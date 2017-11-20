@@ -99,6 +99,7 @@ html, body {
 		margin-right: auto;
 		margin-top: 20px;
 		cursor: pointer;
+		padding-top: 3px;
 		border: 1px solid #432E41;
 	}
 
