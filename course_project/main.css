@@ -51,6 +51,10 @@ html, body {
 		padding-left: 22%;
 	}
 
+	p {
+		font-size: 1.3em;
+	}
+
 	#menuButton {
 		display: none;
 	}
@@ -58,6 +62,12 @@ html, body {
 	.icon-bar > img {
 		padding-left: 5%;
 		padding-right: 5%;
+	}
+
+	iframe {
+		margin-right: auto;
+		margin-left: auto;
+		display: block;
 	}
 }
 
@@ -97,8 +107,9 @@ html, body {
 	}
 
 	p {
-		padding-left: 10px;
-		padding-right: 10px;
+		padding-left: 15px;
+		padding-right: 15px;
+		font-size: 1em;
 	}
 
 	li {
@@ -176,7 +187,6 @@ main {
 p {
 	margin-top: 30px;
 	margin-bottom: 30px;
-	font-size: 1.2em;
 	font-family: 'Cantarell', sans-serif;
 }
 
