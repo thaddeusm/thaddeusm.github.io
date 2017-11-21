@@ -123,17 +123,24 @@ html, body {
 	}
 }
 
-@media screen and (min-width: 559px) and (max-width: 700px) {
+@media screen and (min-width: 601px) and (max-width: 700px) {
 	.icon-bar > img {
-		padding-left: 70px;
-		padding-right: 70px;
+		padding-left: 120px;
+		padding-right: 120px;
 	}
 }
 
-@media screen and (max-width: 558px) {
+@media screen and (min-width: 400px) and (max-width: 600) {
 	.icon-bar > img {
-		padding-left: 40px;
-		padding-right: 40px;
+		padding-left: 100px;
+		padding-right: 100px;
+	}
+}
+
+@media screen and (max-width: 399px) {
+	.icon-bar > img {
+		padding-left: 50px;
+		padding-right: 50px;
 	}
 }
 

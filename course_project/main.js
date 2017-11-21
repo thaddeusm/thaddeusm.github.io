@@ -39,11 +39,11 @@ var ui = {
 	hideMenu: function() {
 		// requirement 4 - jQuery animation
 		$('aside').slideUp();
-		
+		window.scrollTo(0, 0);
 	},
 	showMenu: function() {
-
 		$('aside').slideDown();
+		window.scrollTo(0, 0);
 	},
 	// requirement 3 - custom created function
 	getAspectRatio: function() {
