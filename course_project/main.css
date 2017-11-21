@@ -96,6 +96,11 @@ html, body {
 		display: none;
 	}
 
+	p {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
 	li {
 		text-align: center;
 	}
@@ -164,7 +169,7 @@ main {
 p {
 	margin-top: 30px;
 	margin-bottom: 30px;
-	font-size: 1.3em;
+	font-size: 1.2em;
 	font-family: 'Cantarell', sans-serif;
 }
 
