@@ -7,7 +7,7 @@ html, body {
 	background: #F5F5F5;
 }
 
-@media screen and (min-width: 1201px) {
+@media screen and (min-width: 1269px) {
 	.container {
 		display: grid;
 		grid-template-columns: 25% 1fr;
@@ -37,8 +37,9 @@ html, body {
 	}
 
 	main { 
-		padding-left: 10%;
-		padding-right: 10%;
+		padding-top: 40px;
+		padding-left: 15%;
+		padding-right: 15%;
 	}
 
 	li {
@@ -49,9 +50,14 @@ html, body {
 	#menuButton {
 		display: none;
 	}
+
+	.icon-bar > img {
+		padding-left: 5%;
+		padding-right: 5%;
+	}
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1268px) {
 	.container {
 		display: grid;
 		grid-template-columns: 10% 1fr 10%;
@@ -108,10 +114,10 @@ html, body {
 	}
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
 	.icon-bar > img {
-		padding-left: 100px;
-		padding-right: 100px;
+		padding-left: 50px;
+		padding-right: 50px;
 	}
 }
 
@@ -126,7 +132,7 @@ h5 {
 
 main {
 	grid-area: main;
-	line-height: 1.5;
+	line-height: 1.6;
 }
 
 .icon-bar {
@@ -147,7 +153,7 @@ main {
 p {
 	margin-top: 30px;
 	margin-bottom: 30px;
-	font-size: 1.2em;
+	font-size: 1.3em;
 	font-family: 'Cantarell', sans-serif;
 }
 
