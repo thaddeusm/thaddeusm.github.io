@@ -157,11 +157,11 @@ p {
 	font-family: 'Cantarell', sans-serif;
 }
 
-a {
+p > a {
 	color: #EB524A;
 }
 
-a:visited {
+p > a:visited {
 	color: #27D0B9;
 }
 
