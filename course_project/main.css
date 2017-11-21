@@ -64,12 +64,12 @@ html, body {
 @media screen and (max-width: 1268px) {
 	.container {
 		display: grid;
-		grid-template-columns: 10% 1fr 10%;
+		grid-template-columns:1fr;
 		grid-template-rows: auto 1fr 100px;
 		grid-template-areas: 
-			"header header header"
-			". main ."
-			". footer .";
+			"header"
+			"main"
+			"footer";
 	}
 
 	header {
