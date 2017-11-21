@@ -37,11 +37,19 @@ var ui = {
 	},
 	hideMenu: function() {
 		var aside = document.querySelector('aside');
-		aside.style.display = 'none';
+		aside.classList = 'fade-out';
+		aside.classList = 'slide-up';
+
+		setTimeout(function() {
+			aside.style.display = 'none';
+		}, 600);
+		
 	},
 	showMenu: function() {
 		var aside = document.querySelector('aside');
 		aside.style.display = 'block';
+		aside.classList = 'slide-down';
+		aside.classList = 'fade-in';
 	},
 	getAspectRatio: function() {
 		var iframe = document.querySelector('iframe');

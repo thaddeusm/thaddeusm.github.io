@@ -204,3 +204,33 @@ footer {
 	align-self: center;
 	text-align: center;
 }
+
+@keyframes slideDown {
+	from {margin-top: -700px;}
+	to {margin-top: 0;}
+}
+
+.slide-down {
+	animation-name: slideDown;
+	animation-duration: 1s;
+}
+
+@keyframes fadeIn {
+	from {opacity: 0;}
+	to {opacity: 100;}
+}
+
+.fade-in {
+	animation-name: fadeIn;
+	animation-duration: .1s;
+}
+
+@keyframes slideUp {
+	from {margin-top: 0;}
+	to {margin-top: -710px;}
+}
+
+.slide-up {
+	animation-name: slideUp;
+	animation-duration: 1s;
+}
