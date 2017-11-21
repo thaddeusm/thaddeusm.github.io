@@ -37,13 +37,16 @@ var ui = {
 	},
 	hideMenu: function() {
 		var aside = document.querySelector('aside');
-		aside.classList = 'fade-out';
-		aside.classList = 'slide-up';
+		// aside.classList = 'fade-out';
+		// aside.classList = 'slide-up';
 
-		setTimeout(function() {
-			aside.style.display = 'none';
-			window.scrollTo(0, 0);
-		}, 600);
+		// setTimeout(function() {
+		// 	aside.style.display = 'none';
+		// 	window.scrollTo(0, 0);
+		// }, 600);
+
+		aside.style.display = 'none';
+		window.scrollTo(0, 0);
 		
 	},
 	showMenu: function() {
