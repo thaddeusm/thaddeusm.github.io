@@ -1,4 +1,5 @@
 // musixmatch key d91e6ac977972cb40004b439e314009c
+// soundcloud id Ka5PHrXNLn7Hf0LUAOovYYsMVKyCGQwG
 
 function process(data) {
 	console.log(data);
@@ -25,10 +26,10 @@ SC.get('/tracks', {
 var ui = {
 	iconDisplay: false,
 	toggleMenu: function() {
-		
 
 		this.iconDisplay = !this.iconDisplay;
 
+		// requirement 3 - if statement
 		if (this.iconDisplay == true) {
 			this.showMenu();
 		} else {
@@ -36,24 +37,15 @@ var ui = {
 		}
 	},
 	hideMenu: function() {
-		var aside = document.querySelector('aside');
-		// aside.classList = 'fade-out';
-		// aside.classList = 'slide-up';
-
-		// setTimeout(function() {
-		// 	aside.style.display = 'none';
-		// 	window.scrollTo(0, 0);
-		// }, 600);
-
-		aside.style.display = 'none';
-		window.scrollTo(0, 0);
+		// requirement 4 - jQuery animation
+		$('aside').slideUp();
 		
 	},
 	showMenu: function() {
-		var aside = document.querySelector('aside');
-		aside.classList = 'slide-down';
-		aside.style.display = 'block';
+
+		$('aside').slideDown();
 	},
+	// requirement 3 - custom created function
 	getAspectRatio: function() {
 		var iframe = document.querySelector('iframe');
 		var body = document.querySelector('body');
@@ -76,23 +68,4 @@ var ui = {
 	}
 };
 
-
-
-
-function getAspectRatio() {
-	var height = iframe.getAttribute('height');
-	var width = iframe.getAttribute('width');
-	var aspectRatio = height / width;
-
-	var newWidth = body.offsetWidth;
-
-	if (newWidth > 600) {
-		var fixedWidth = 600;
-
-		iframe.setAttribute('width', fixedWidth);
-		iframe.setAttribute('height', fixedWidth * aspectRatio);
-	} else {
-		iframe.setAttribute('width', newWidth);
-		iframe.setAttribute('height', newWidth * aspectRatio);
-	}
-}
+ui.getAspectRatio();
