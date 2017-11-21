@@ -47,9 +47,8 @@ var ui = {
 	},
 	showMenu: function() {
 		var aside = document.querySelector('aside');
-		aside.style.display = 'block';
 		aside.classList = 'slide-down';
-		aside.classList = 'fade-in';
+		aside.style.display = 'block';
 	},
 	getAspectRatio: function() {
 		var iframe = document.querySelector('iframe');
