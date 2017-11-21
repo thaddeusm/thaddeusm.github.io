@@ -179,12 +179,17 @@ li {
 
 li > a {
 	color: #CCCCCC;
-	text-decoration: #DA5D52 underline;
+	text-decoration: none;
+	border-bottom: 1px solid #DA5D52;
+}
+
+li > a:hover {
+	color: #FFFFFF;
 }
 
 li > a:visited {
 	color: #CCCCCC;
-	text-decoration: #DA5D52 underline;
+	border-bottom: 1px solid #DA5D52;
 }
 
 footer {
