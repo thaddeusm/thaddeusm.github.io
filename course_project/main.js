@@ -43,14 +43,4 @@ var ui = {
 		var aside = document.querySelector('aside');
 		aside.style.display = 'block';
 	},
-	checkScreenWidth: function() {
-		var body = document.querySelector('body');
-	    var width = body.offsetWidth;
-	    
-	    if (width > 1201) {
-	    	this.showMenu();
-	    } else {
-	    	this.hideMenu();
-	    }
-	}
 };
