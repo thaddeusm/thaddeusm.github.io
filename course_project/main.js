@@ -43,4 +43,45 @@ var ui = {
 		var aside = document.querySelector('aside');
 		aside.style.display = 'block';
 	},
+	getAspectRatio: function() {
+		var iframe = document.querySelector('iframe');
+		var body = document.querySelector('body');
+
+		var height = iframe.getAttribute('height');
+		var width = iframe.getAttribute('width');
+		var aspectRatio = height / width;
+
+		var newWidth = body.offsetWidth;
+
+		if (newWidth > 600) {
+			var fixedWidth = 600;
+
+			iframe.setAttribute('width', fixedWidth);
+			iframe.setAttribute('height', fixedWidth * aspectRatio);
+		} else {
+			iframe.setAttribute('width', newWidth);
+			iframe.setAttribute('height', newWidth * aspectRatio);
+		}		
+	}
 };
+
+
+
+
+function getAspectRatio() {
+	var height = iframe.getAttribute('height');
+	var width = iframe.getAttribute('width');
+	var aspectRatio = height / width;
+
+	var newWidth = body.offsetWidth;
+
+	if (newWidth > 600) {
+		var fixedWidth = 600;
+
+		iframe.setAttribute('width', fixedWidth);
+		iframe.setAttribute('height', fixedWidth * aspectRatio);
+	} else {
+		iframe.setAttribute('width', newWidth);
+		iframe.setAttribute('height', newWidth * aspectRatio);
+	}
+}

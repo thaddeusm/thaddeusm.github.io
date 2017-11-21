@@ -103,16 +103,15 @@ html, body {
 		border: 1px solid #432E41;
 	}
 
-	#menuButton:hover {
-		border: 1px solid #FFFFFF;
-	}
-
-	#menuButton:active {
-		border: 1px solid #432E41;
-	}
-
 	#menuButton > img {
 		height: 30px;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.icon-bar > img {
+		padding-left: 100px;
+		padding-right: 100px;
 	}
 }
 
@@ -130,12 +129,12 @@ main {
 	line-height: 1.5;
 }
 
-#logos {
+.icon-bar {
 	text-align: center;
 	background: #CCCCCC;
 }
 
-#logos > img {
+.icon-bar > img {
 	margin: 50px;
 	height: 60px;
 }
