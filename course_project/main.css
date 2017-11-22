@@ -237,7 +237,12 @@ li > a:visited {
 }
 
 pre {
-	
+	width: 100%;
+	white-space: pre-wrap;
+  	word-wrap: break-word;
+  	text-align: justify;
+  	font-size: 1.3em;
+  	font-family: 'Ubuntu Mono', monospace;
 }
 
 footer {
