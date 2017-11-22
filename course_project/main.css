@@ -132,6 +132,11 @@ html, body {
 	#menuButton > img {
 		height: 30px;
 	}
+
+	.progress-links {
+		padding-right: 50px;
+		padding-left: 50px;
+	}
 }
 
 @media screen and (min-width: 601px) and (max-width: 700px) {
@@ -226,7 +231,8 @@ li > a:visited {
 }
 
 .progress-links {
-	
+	margin-top: 40px;
+	margin-bottom: 5px;
 }
 
 .next {
