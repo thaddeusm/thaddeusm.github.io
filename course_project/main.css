@@ -69,6 +69,13 @@ html, body {
 		margin-left: auto;
 		display: block;
 	}
+
+	pre {
+		width: 70%;
+		margin-left: auto;
+		margin-right: auto;
+		border: 10px solid #CCCCCC;
+	}
 }
 
 @media screen and (max-width: 1268px) {
@@ -131,6 +138,12 @@ html, body {
 
 	#menuButton > img {
 		height: 30px;
+	}
+
+	pre {
+		width: 100%;
+		border-top: 10px solid #CCCCCC;
+		border-bottom: 10px solid #CCCCCC;
 	}
 }
 
@@ -237,12 +250,11 @@ li > a:visited {
 }
 
 pre {
-	width: 100%;
 	white-space: pre-wrap;
-  	word-wrap: break-word;
-  	text-align: justify;
   	font-size: 1.2em;
   	font-family: 'Ubuntu Mono', monospace;
+  	margin-top: 30px;
+  	margin-bottom: 30px;
 }
 
 footer {

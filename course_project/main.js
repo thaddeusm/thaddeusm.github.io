@@ -17,7 +17,7 @@ SC.initialize({
 });
 
 SC.get('/tracks', {
-	q: 'iron and wine', license: 'cc-by-sa'
+	q: 'jimmy eat world', license: 'cc-by'
 }).then(function(tracks) {
 	console.log(tracks);
 });
@@ -70,5 +70,3 @@ var ui = {
 		}		
 	}
 };
-
-ui.getAspectRatio();
