@@ -6,8 +6,11 @@
 	<title>Making Connections | The Concept</title>
 	<link rel="stylesheet" type="text/css" href="main.css">
 	<link href="https://fonts.googleapis.com/css?family=Cantarell|Viga" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="libraries/styles/rainbow.css">
 	<script type="text/javascript" src="libraries/jquery-3.2.1.min.js"></script>
 	<script src="https://connect.soundcloud.com/sdk/sdk-3.3.0.js"></script>
+	<script type="text/javascript" src="libraries/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
 </head>
 <body onresize="ui.getAspectRatio()">
 	<div class="container">
@@ -35,6 +38,11 @@
 			</div>
 			<p>This website aims to provide a walkthrough of an example project that draws upon two databases related to music: <a href="https://developers.soundcloud.com/docs/api/guide" target="_blank">Soundcloud</a> and <a href="https://developer.musixmatch.com/documentation" target="_blank">Musixmatch</a>.  The project will explore opportunities for and limitations to integration between a database of sounds and a database of lyrics.</p>
 			<iframe width="560" height="315" src="https://www.youtube.com/embed/EJC3iocZAhY?rel=0" frameborder="0" allowfullscreen></iframe>
+			<pre><code class="javascript">
+				function testThis() {
+					console.log('something');
+				}
+			</code></pre>
 			<div class="progress-links">
 				<a class="previous" href="#"><img src="media/arrow-left.svg"></a>
 				<a class="next" href="#"><img src="media/arrow-right.svg"></a>
