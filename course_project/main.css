@@ -141,7 +141,7 @@ html, body {
 	}
 }
 
-@media screen and (min-width: 400px) and (max-width: 600) {
+@media screen and (min-width: 400px) and (max-width: 600px) {
 	.icon-bar > img {
 		padding-left: 100px;
 		padding-right: 100px;
