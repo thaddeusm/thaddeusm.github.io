@@ -42,15 +42,11 @@ var ui = {
 
 		setTimeout(function() {
 			window.scrollTo(0, 0);
-		}, 500);
+		}, 400);
 		
 	},
 	showMenu: function() {
 		$('aside').slideDown();
-		
-		setTimeout(function() {
-			window.scrollTo(0, 0);
-		}, 500);
 	},
 	// requirement 3 - custom created function
 	getAspectRatio: function() {
@@ -63,7 +59,7 @@ var ui = {
 
 		var newWidth = body.offsetWidth;
 
-		if (newWidth > 600) {
+		if (newWidth > 1268) {
 			var fixedWidth = 600;
 
 			iframe.setAttribute('width', fixedWidth);
