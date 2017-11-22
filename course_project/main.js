@@ -38,11 +38,11 @@ var ui = {
 	},
 	hideMenu: function() {
 		// requirement 4 - jQuery animation
-		$('aside').slideUp();
-
-		setTimeout(function() {
-			window.scrollTo(0, 0);
-		}, 400);
+		$('aside').slideUp(400, function() {
+			$('html,body').animate({
+            	scrollTop: $(this).offset().top
+       		}, 'slow');
+		});
 		
 	},
 	showMenu: function() {
