@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Making Connections | The APIs</title>
-	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link href="https://fonts.googleapis.com/css?family=Cantarell|Viga|Ubuntu+Mono" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="libraries/styles/rainbow.css">
 	<script type="text/javascript" src="libraries/jquery-3.2.1.min.js"></script>
@@ -30,21 +30,29 @@
 			<button id="menuButton" type="button" onclick="ui.toggleMenu()"><img src="media/hamburger.svg" alt="Menu Icon"></button>
 		</header>
 		<main>
-			<p>Requesting information from <a href="https://developer.musixmatch.com/documentation" target="_blank">Musixmatch</a> follows a standard process for making 'GET' requests.</p>
+			<p>When interacting with APIs for front-end projects, documentation is essential.  Both services provide comprehensive documentation and examples to help developers get started.  Also, they both require that developers register to receive a key to include with their requests.  Musixmatch offers a simple registration process while Soundcloud's registration requires a waiting period.  Fortunately, I had applied for an API key from Soundcloud several months ago for a different project.</p>
+			<p>Note: at the time of this tutorial, Soundcloud had paused its API key request process with the promise that they were working to revamp it and release new keys soon.</p>
+			<p>Besides documentation, Musixmatch provides a <a href="https://playground.musixmatch.com/" target="_blank">'Playground'</a> that allows you to try out building requests within a friendly user interface.  While experimenting, I noticed a callback parameter for <a href="https://www.w3schools.com/js/js_json_jsonp.asp" target="_blank">JSONP</a> that allows you to set a function to begin once the API has responded.  This format helps you avoid cross-domain issues related to using a standard XMLHttp GET request.  Instead, you can use JavaScript methods for adding a new script element to the DOM that will make the request.  An example request for lyrics for Iron and Wine songs is provided below.</p>
 			<pre><code class="javascript">
- function process(data) {
+ // a callback function to display the returned data object
+ function receiveData(data) {
    console.log(data);
  }
 
+ // creates a new script element
  var request = document.createElement('script');
+ var key = '[INSERT YOUR API KEY]'
 
- var url = 'https://api.musixmatch.com/ws/1.1track.search?format=jsonp&callback=process&q_artist=iron%20and%20wine&quorum_factor=1&apikey=d91e6ac977972cb40004b439e314009c';
+ // the URL contains a query to pass along properties and values
+ var url = 'https://api.musixmatch.com/ws/1.1track.search?format=jsonp&callback=process&q_artist=iron%20and%20wine&quorum_factor=1&apikey=' + key + ';
 
+ // sets the source of the new script element
  request.setAttribute('src', url);
 
+ // prints the script element to the DOM and initiates the request
  document.querySelector('body').appendChild(request);
 			</code></pre>
-			<p>The <a href="https://developers.soundcloud.com/docs/api/guide" target="_blank">Soundcloud</a> API provides a software development kit (SDK) that includes convenient methods for not only making requests but also for streaming sounds.  The SDK also utilizes ES6 features that allow you to chain a callback and error handling onto a request.</p>
+			<p>The <a href="https://developers.soundcloud.com/docs/api/guide" target="_blank">Soundcloud</a> API provides a software development kit (SDK) that includes convenient methods for not only making requests but also for streaming sounds.  This simplifies the issue of making GET requests and adds a layer of abstraction that makes incorporating data from Soundcloud much easier.  The SDK also utilizes ES6 features that allow you to chain a callback and error handling onto a request.  Here is an example request for tracks labeled as belonging to Coldplay:</p>
 			<pre><code class="javascript">
  SC.get('/tracks', {
    q: 'coldplay', license: 'cc-by'
@@ -52,6 +60,7 @@
    // tracks
  });
 			</code></pre>
+			<p>The documentation instructs you to simply initialize the SC object and pass in your key as a parameter before making requests.  This makes code related to Soundcloud much more minimalistic compared to requests to the Musixmatch API.  Now, we can find out whether these first impressions reflect ease of use and functionality in 'real world' implementations.</p>
 			<div class="progress-links">
 				<a class="previous" href="index.html"><img src="media/arrow-left.svg"></a>
 				<a class="next" href="3_stream_music.html"><img src="media/arrow-right.svg"></a>
@@ -61,6 +70,6 @@
 			<h5>Thaddeus McCleary - 2017</h5>
 		</footer>
 	</div>
-	<script type="text/javascript" src="main.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>

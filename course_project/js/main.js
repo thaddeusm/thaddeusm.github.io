@@ -62,7 +62,9 @@ var ui = {
 					pre[i].style.width = '' + newWidth + 'px';
 				}
 			}
-		} else if (iframes) {
+		}
+
+		if (iframes) {
 			var iframe = document.querySelector('iframe');
 
 			var height = iframe.getAttribute('height');

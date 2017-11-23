@@ -116,7 +116,7 @@ html, body {
 	p {
 		padding-left: 15px;
 		padding-right: 15px;
-		font-size: 1em;
+		font-size: 1.1em;
 	}
 
 	li {
@@ -263,4 +263,27 @@ footer {
 	grid-area: footer;
 	align-self: center;
 	text-align: center;
+}
+
+.center {
+	text-align: center;
+}
+
+.text-button {
+	font-size: 1.3em;
+	font-family: 'Viga', sans-serif;
+	background: #27D0B9;
+	color: #432E41;
+	padding: 10px;
+	border: 1px solid #F5F5F5;
+	outline: none;
+	margin: 10px;
+}
+
+.text-button:hover {
+	box-shadow: 1px 1px 5px #432E41;
+}
+
+.text-button:active {
+	box-shadow: none;
 }
