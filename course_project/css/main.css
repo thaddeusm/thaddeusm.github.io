@@ -68,6 +68,7 @@ html, body {
 		margin-right: auto;
 		margin-left: auto;
 		display: block;
+		border: 10px solid #CCCCCC;
 	}
 
 	pre {
