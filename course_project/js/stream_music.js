@@ -1,3 +1,5 @@
+SC.stream.activateAudioElement();
+
 var stream = {
 	track: '',
 	player: '',
@@ -11,8 +13,6 @@ var stream = {
 			// set the track to the property
 			stream.track = '/tracks/' + tracks[0].id;
 			console.log(stream.track);
-
-			SC.stream.activateAudioElement();
 
 			// initializing the player from SDK
 			SC.stream(stream.track).then(function(player) {
