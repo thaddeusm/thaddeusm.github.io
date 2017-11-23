@@ -1,5 +1,3 @@
-SC.stream.activateAudioElement();
-
 var stream = {
 	track: '',
 	player: '',
