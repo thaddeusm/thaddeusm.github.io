@@ -49,24 +49,46 @@ var ui = {
 		$('aside').slideDown();
 	},
 	// requirement 3 - custom created function
-	getAspectRatio: function() {
-		var iframe = document.querySelector('iframe');
+	getIdealWidth() {
 		var body = document.querySelector('body');
 
-		var height = iframe.getAttribute('height');
-		var width = iframe.getAttribute('width');
-		var aspectRatio = height / width;
 
-		var newWidth = body.offsetWidth;
-
-		if (newWidth > 1268) {
+		var pre = document.querySelectorAll('pre');
+		var iframes = document.querySelectorAll('iframe');
+		
+		if (pre) {
+			var newWidth = body.offsetWidth;
 			var fixedWidth = 600;
 
-			iframe.setAttribute('width', fixedWidth);
-			iframe.setAttribute('height', fixedWidth * aspectRatio);
-		} else {
-			iframe.setAttribute('width', newWidth);
-			iframe.setAttribute('height', newWidth * aspectRatio);
-		}		
+			// requirement 3 - loop
+			for (var i=0; i<pre.length; i++) {
+				if (newWidth > 1268) {
+					pre[i].style.width = '' + fixedWidth + 'px';
+				} else {
+					pre[i].style.width = '' + newWidth + 'px';
+				}
+			}
+		} else if (iframes) {
+			var iframe = document.querySelector('iframe');
+
+			var height = iframe.getAttribute('height');
+			var width = iframe.getAttribute('width');
+			var aspectRatio = height / width;
+
+			var newWidth = body.offsetWidth;
+
+			if (newWidth > 1268) {
+				var fixedWidth = 600;
+
+				iframe.setAttribute('width', fixedWidth);
+				iframe.setAttribute('height', fixedWidth * aspectRatio);
+			} else {
+				iframe.setAttribute('width', newWidth);
+				iframe.setAttribute('height', newWidth * aspectRatio);
+			}
+		}
+
 	}
 };
+
+ui.getIdealWidth()
