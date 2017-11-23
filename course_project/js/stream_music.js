@@ -18,6 +18,8 @@ var stream = {
 				stream.player = player;
 				// playing the sound
 				stream.player.play();
+			}).catch(function(e) {
+				alert(e);
 			});
 		});
 	},
