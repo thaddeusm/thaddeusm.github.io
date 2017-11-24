@@ -33,3 +33,5 @@ var stream = {
 		});
 	}
 };
+
+stream.listener();
