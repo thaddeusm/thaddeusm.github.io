@@ -10,8 +10,7 @@ var stream = {
 			// grab track id and format for streaming
 			// set the track to the property
 			stream.track = '/tracks/' + tracks[0].id;
-			console.log(stream.track);
-
+			
 			// initializing the player from SDK
 			SC.stream(stream.track).then(function(player) {
 				// setting the player to a object prop
@@ -19,11 +18,18 @@ var stream = {
 				// playing the sound
 				stream.player.play();
 			}).catch(function(e) {
-				alert(e);
+				console.log(e);
 			});
+			
 		});
 	},
 	pause: function() {
 		this.player.pause();
+	},
+	listener: function() {
+		// requirement 4 - jQuery event
+		$('#playButton').on('click', function() {
+			stream.play();
+		});
 	}
 };
