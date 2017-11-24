@@ -25,13 +25,5 @@ var stream = {
 	},
 	pause: function() {
 		this.player.pause();
-	},
-	listener: function() {
-		// requirement 4 - jQuery event
-		$('#playButton').on('click', function() {
-			stream.play();
-		});
 	}
 };
-
-stream.listener();
