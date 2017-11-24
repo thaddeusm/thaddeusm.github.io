@@ -16,7 +16,7 @@ var stream = {
 				// setting the player to a object prop
 				stream.player = player;
 				// playing the sound
-				stream.player.play();
+				player.play();
 			}).catch(function(e) {
 				console.log(e);
 			});
