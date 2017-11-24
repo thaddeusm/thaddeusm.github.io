@@ -14,9 +14,9 @@ var stream = {
 			// initializing the player from SDK
 			SC.stream(stream.track).then(function(player) {
 				// setting the player to a object prop
-				stream.player = player;
+				stream.player = window.player = player;
 				// playing the sound
-				player.play();
+				window.player.play();
 			}).catch(function(e) {
 				console.log(e);
 			});
