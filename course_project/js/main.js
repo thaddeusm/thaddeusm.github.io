@@ -48,11 +48,11 @@ var ui = {
 
 
 		var pre = document.querySelectorAll('pre');
-		var iframes = document.querySelectorAll('iframe');
+		var iframe = document.querySelector('iframe');
 		
 		if (pre) {
 			var newWidth = body.offsetWidth;
-			var fixedWidth = 700;
+			var fixedWidth = 850;
 
 			// requirement 3 - loop
 			for (var i=0; i<pre.length; i++) {
@@ -64,8 +64,7 @@ var ui = {
 			}
 		}
 
-		if (iframes) {
-			var iframe = document.querySelector('iframe');
+		if (iframe) {
 
 			var height = iframe.getAttribute('height');
 			var width = iframe.getAttribute('width');
@@ -74,7 +73,7 @@ var ui = {
 			var newWidth = body.offsetWidth;
 
 			if (newWidth > 1268) {
-				var fixedWidth = 700;
+				var fixedWidth = 850;
 
 				iframe.setAttribute('width', fixedWidth);
 				iframe.setAttribute('height', fixedWidth * aspectRatio);

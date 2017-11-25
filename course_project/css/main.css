@@ -288,3 +288,7 @@ footer {
 .text-button:active {
 	box-shadow: none;
 }
+
+#accordion {
+	margin-top: 40px;
+}
