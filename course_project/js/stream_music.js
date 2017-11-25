@@ -1,7 +1,7 @@
 var stream = {
 	track: '',
 	player: '',
-	play: function() {
+	findSound: function() {
 		// searching soundcloud for tracks related to coldplay
 		SC.get('/tracks', {
 			q: 'coldplay', license: 'cc-by-sa'
@@ -15,15 +15,19 @@ var stream = {
 			SC.stream(stream.track).then(function(player) {
 				// setting the player to a object prop
 				stream.player = window.player = player;
-				// playing the sound
-				window.player.play();
 			}).catch(function(e) {
 				console.log(e);
 			});
 			
 		});
 	},
+	play: function() {
+		// play the sound
+		this.player.play();
+	},
 	pause: function() {
 		this.player.pause();
 	}
 };
+
+stream.findSound();
