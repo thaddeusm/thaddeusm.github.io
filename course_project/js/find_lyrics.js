@@ -62,6 +62,7 @@ var lyrics = {
 		for (var i=0; i<this.tracks.length; i++) {
 			var title = this.buildElement('h2', this.tracks[i]['title']);
 			var lyricsText = this.buildElement('div', this.tracks[i]['lyrics']);
+			lyricsText.setAttribute('class', 'auto-height');
 			accordion.appendChild(title);
 			accordion.appendChild(lyricsText);
 		}
@@ -71,7 +72,10 @@ var lyrics = {
 	// requirement 5 - one jQuery UI widget
 	initializeAccordion: function() {
 		// initializes the widget to create the accordion effect
-		$('#accordion').accordion();
+		$('#accordion').accordion({
+			heightStyle: 'content',
+			collapsible: true
+		});
 	},
 	// requirement 4 - jQuery event
 	listener: function() {
