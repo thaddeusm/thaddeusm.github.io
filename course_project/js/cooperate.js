@@ -28,6 +28,8 @@ var simpleSearch = {
 var controller = {
 	startSearch: function() {
 
+		$('#simpleSearchButton').focus();
+
 		var keyword = document.getElementById('simpleSearchInput').value;
 		console.log(keyword);
 
