@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Making Connections | The Player</title>
+	<link rel="stylesheet" type="text/css" href="css/player.css">
+	<link href="https://fonts.googleapis.com/css?family=Cantarell|Viga|Ubuntu+Mono" rel="stylesheet">
+	<script type="text/javascript" src="libraries/jquery-3.2.1.min.js"></script>
+	<script src="https://connect.soundcloud.com/sdk/sdk-3.3.0.js"></script>
+</head>
+<body>
+	<main>
+		<aside>
+			<div id="searchArea" class="center">
+				<input type="text" name="searchTerm" id="searchTermInput">
+				<button type="button" onclick="controller.startSearch()" id="searchTermButton"><img src="media/search.svg"></button>
+				<div id="feedbackArea" class="center">
+					<img src="media/soundcloud_logo.svg" class="feedback-icon" id="soundcloud">
+					<img src="media/add.svg" id="add">
+					<img src="media/lyrics.svg" class="feedback-icon" id="musixmatch">
+				</div>
+			</div>
+			<div id="player">
+				<div id="coverArt"></div>
+				<section id="songTitleArea" class="center">
+					<h4 id="songTitle"></h4>
+				</section>
+				<section id="playlistArea" class="center">
+					<button id="menuCollapse" type="button" onclick="controller.toggleMenu()"><img src="media/hamburger.svg" alt="hamburger icon"></button>
+					<div id="playlist">
+						<h6>Up Next</h6>
+						<div id="tracks">
+							
+						</div>
+						<button id="addMore" onclick="controller.newSearch()" type="button"><img src="media/add.svg" alt="add icon"></button>
+					</div>
+				</section>
+				<div id="playerButtons" class="center">
+					<button id="playButton" type="button" onclick="controller.play()"><img src="media/play.svg" alt="play icon"></button>
+					<button id="pauseButton" onclick="controller.pause()" type="button"><img src="media/pause.svg" alt="pause icon"></button>
+				</div>
+			</div>
+		</aside>
+		<section id="lyrics"></section>
+		<footer class="center">
+			<h5>Thaddeus McCleary - 2017</h5>
+		</footer>
+	</main>
+	<script type="text/javascript" src="js/player.js"></script>
+</body>
+</html>
