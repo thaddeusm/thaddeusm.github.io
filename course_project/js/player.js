@@ -157,6 +157,17 @@ var controller = {
 			}
 		});
 	},
+	startPlaylistListener: function() {
+		musicPlayer.audioPlayer.on('finish', function() {
+			if (musicPlayer.playlist.length > 0) {
+				musicPlayer.shiftTracks();
+				
+				setTimeout(function() {
+					controller.play();
+				}, 2000);
+			}
+		});
+	},
 	toggleMenu: function() {
 		if (this.isCollapsed == false) {
 			view.showPlaylist();
@@ -188,6 +199,7 @@ var controller = {
 	},
 	play: function() {
 		musicPlayer.audioPlayer.play();
+		this.startPlaylistListener();
 	},
 	pause: function() {
 		musicPlayer.audioPlayer.pause();
@@ -283,15 +295,18 @@ var view = {
 
 		for (var i=0; i<musicPlayer.playlist.length; i++) {
 			var title = musicPlayer.playlist[i][0]['title'];
-			var h6 = this.buildContentElement('h6', title);
+			var span = this.buildContentElement('span', title);
 			var onclick = 'controller.shiftTracks(' + i + ')';
 			var button = this.buildContentElement('button', '', onclick);
-			button.appendChild(h6);
+			button.appendChild(span);
 			playlistArea.appendChild(button);
 		}
 	},
 	displayLyrics: function() {
 		var lyricsArea = document.getElementById('lyrics');
+
+		lyricsArea.innerHTML = '';
+
 		var thisTrack = musicPlayer.currentTrack[0][0];
 		var waveformSource = musicPlayer.currentTrack[0][1]['waveform'];
 		lyricsArea.style.backgroundImage = 'url(' + waveformSource + ')';
@@ -309,13 +324,6 @@ var view = {
 		lyricsArea.appendChild(h5);
 		lyricsArea.appendChild(p);
 		lyricsArea.appendChild(a);
-	},
-	setWaveform: function() {
-		// background-image: url(../media/waveform.png);
-
-		var lyricsArea = document.getElementById('lyrics');
-		var waveformSource = musicPlayer.currentTrack[0]
-		
 	}
 };
 
@@ -327,7 +335,6 @@ controller.startListeners();
 
 function processLyricsSearch(data) {
 	musicPlayer.processLyrics(data);
-	console.log(data);
 }
 
 function fillInLyrics(data) {

@@ -11,6 +11,10 @@ html, body {
 
 @media screen and (max-width: 800px) {
 
+	aside {
+		border-bottom: 4px solid #27D0B9;
+	}
+
 	main {
 		display: grid;
 		grid-template-rows: auto 1fr 100px;
@@ -24,6 +28,7 @@ html, body {
 	#player {
 		display: none;
 		background: #CCCCCC;
+		font-family: 'Cantarell', sans-serif;
 		grid-template-rows: auto auto auto;
 		grid-template-columns: auto 1fr auto;
 		grid-template-areas: 
@@ -98,14 +103,24 @@ html, body {
 	}
 
 	h6 {
-		font-size: 1.1em;
-		font-family: 'Cantarell', sans-serif;
+		font-size: 1.2em;
 		color: #CCCCCC;
 	}
 
 	#playerButtons > button {
 		margin-left: 10%;
 		margin-right: 10%; 
+	}
+
+	#tracks > button {
+		border: none;
+		outline: none;
+		padding: 5px;
+		margin: 15px;
+		background: transparent;
+		font-size: 1.1em;
+		cursor: pointer;
+		color: #FFF;
 	}
 
 }
@@ -241,6 +256,11 @@ h4 {
 	background: transparent;
 	-webkit-filter: drop-shadow(5px 5px 3px #000);
     filter:         drop-shadow(5px 5px 3px #000); 
+}
+
+#playerButtons > button > img:active {
+	filter: none;
+	-webkit-filter: none;
 }
 
 #menuCollapse {
