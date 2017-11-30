@@ -23,8 +23,8 @@ html, body {
 
 	aside {
 		height: 95vh;
-		padding-left: 20px;
-		padding-right: 20px;
+		padding-left: 15px;
+		padding-right: 15px;
 		border-right: 4px solid #27D0B9;
 	}
 
@@ -71,6 +71,10 @@ html, body {
 
 	#menuCollapse > img {
 		display: none;
+	}
+
+	#coverArt {
+		margin-right: 5px;
 	}
 
 	#coverArt > img {
@@ -126,6 +130,7 @@ html, body {
 		align-self: center;
 		margin-right: 10px;
 		margin-left: 10px;
+		margin-top: 15px;
 		text-decoration: underline;
 		text-decoration-color: #DA5D52;
 	}

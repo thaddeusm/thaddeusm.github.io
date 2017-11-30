@@ -95,7 +95,6 @@ var musicPlayer = {
 
 		this.playlist.push(options[0]);
 
-		console.log(this.playlist);
 		this.resetProperties();
 
 		if (this.playlist[0][0]) {
