@@ -9,11 +9,212 @@ html, body {
 	background: #F5F5F5;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (min-width: 801px) {
+
+	main {
+		display: grid;
+		grid-template-columns: 400px 1fr;
+		grid-template-rows: auto auto 50px;
+		grid-template-areas: 
+			"aside lyrics"
+			"aside lyrics"
+			"footer lyrics";
+	}
 
 	aside {
-		border-bottom: 4px solid #27D0B9;
+		height: 95vh;
+		padding-left: 20px;
+		padding-right: 20px;
+		border-right: 4px solid #27D0B9;
 	}
+
+	footer {
+		height: 5vh;
+		background: #432E41;
+		color: #CCC;
+		border-right: 4px solid #27D0B9;
+	}
+
+	#playlist > h6 {
+		display: none;
+	}
+
+	#playlistArea {
+		vertical-align: top;
+		overflow: auto;
+	}
+
+	#player {
+		margin-top: 100px;
+		max-width: 375px;
+		margin-left: auto;
+		margin-right: auto;
+		background: #CCCCCC;
+		display: grid;
+		font-family: 'Cantarell', sans-serif;
+		grid-template-rows: 50px auto auto;
+		grid-template-columns: auto 1fr;
+		grid-template-areas: 
+			"coverArt songTitleArea"
+			"coverArt playlistArea"
+			"playerButtons playerButtons";
+	}
+
+	#playlistArea {
+		max-height: 180px;
+		overflow: auto;
+	}
+
+	#playlistArea > button {
+		display: none;
+	}
+
+	#menuCollapse > img {
+		display: none;
+	}
+
+	#coverArt > img {
+		height: 155px;
+		margin-top: 25px;
+		margin-bottom: 25px;
+		margin-left: 10px;
+	}
+
+	#addMore {
+		display: none;
+	}
+
+	#playerButtons > button {
+		margin-top: 40px;
+		margin-bottom: 40px;
+		margin-left: 10%;
+		margin-right: 10%; 
+	}
+
+	#feedbackArea {
+		margin-top: 20px;
+		margin-bottom: 50px;
+	}
+
+	input {
+		width: 250px;
+		padding: 15px;
+	}
+
+	#searchTermButton {
+		margin-left: -51px;
+		padding-top: 13px;
+		padding-bottom: 21px;
+		padding-left: 11px;
+		padding-right: 11px;
+	}
+
+	.feedback-icon {
+		height: 40px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		padding-right: 15px;
+		padding-left: 15px;
+		border-radius: 10px;
+	}
+
+	h4 {
+		font-size: 1.2em;
+	}
+
+	#songTitleArea {
+		align-self: center;
+		margin-right: 10px;
+		margin-left: 10px;
+		text-decoration: underline;
+		text-decoration-color: #DA5D52;
+	}
+
+	#tracks > button {
+		border: none;
+		outline: none;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		padding-left: 2px;
+		padding-right: 2px;
+		margin-left: 2px;
+		margin-right: 2px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		background: transparent;
+		font-size: 1.1em;
+		cursor: pointer;
+		color: #432E41;
+	}
+
+	#tracks > button:hover {
+		background: #DA5D52;
+		color: #FFF;
+	}
+
+	#lyrics {
+		margin-top: 50px;
+		padding-left: 30%;
+		padding-right: 30%;
+		min-height: 200px;
+		overflow: auto;
+	}
+
+	#lyrics > p {
+		margin-top: 70px;
+		font-size: 1.1em;
+		margin-bottom: 50px;
+	}
+
+	#lyrics > h2 {
+		text-align: center;
+		margin-bottom: 20px;
+		font-size: 1.8em;
+	}
+
+	#lyrics > h5 {
+		text-align: center;
+	}
+
+	#searchArea {
+		padding-top: 70px;
+	}
+
+	#aboutFooter {
+		display: none;
+	}
+
+	#about {
+		margin-top: 100px;
+	}
+
+	.about-button > a {
+		text-decoration: none;
+		color: #432E41;
+	}
+
+	.about-button {
+		font-size: 1.1em;
+		font-family: 'Viga', sans-serif;
+		background: #DA5D52;
+		color: #432E41;
+		padding: 7px;
+		border: 1px solid #432E41;
+		outline: none;
+		margin: 10px;
+	}
+
+	.about-button:hover {
+		box-shadow: 1px 1px 5px #000;
+	}
+
+	.about-button:active {
+		box-shadow: none;
+	}
+
+}
+
+@media screen and (max-width: 800px) {
 
 	main {
 		display: grid;
@@ -23,6 +224,10 @@ html, body {
 			"aside"
 			"lyrics"
 			"footer";
+	}
+
+	aside {
+		border-bottom: 4px solid #27D0B9;
 	}
 
 	#player {
@@ -46,31 +251,10 @@ html, body {
 		font-family: 'Cantarell', sans-serif;
 	}
 
-	#lyrics > h2 {
-		display: none;
-	}
-
-	#lyrics > h5 {
-		text-align: center;
-		margin-bottom: 30px;
-	}
-
-	#lyrics > p {
-		line-height: 1.5;
-	}
-
-	#lyrics > a {
-		color: #EB524A;
-		display: block;
-		text-align: center;
-	}
-
-	#lyrics > a:visited {
-		color: #27D0B9;
-	}
-
 	#coverArt > img {
 		max-height: 100px;
+		margin-top: 10px;
+		margin-left: 10px;
 	}
 
 	#songTitleArea {
@@ -87,6 +271,12 @@ html, body {
 
 	h4 {
 		margin-bottom: 10px;
+		font-size: 1.4em;
+	}
+
+	input {
+		width: 250px;
+		padding: 10px;
 	}
 
 	#addMore {
@@ -123,6 +313,65 @@ html, body {
 		color: #FFF;
 	}
 
+	#feedbackArea {
+		margin-bottom: 20px;
+	}
+
+	#searchTermButton {
+		margin-left: -40px;
+		padding-top: 9px;
+		padding-bottom: 17px;
+		padding-left: 11px;
+		padding-right: 11px;
+	}
+
+	.feedback-icon {
+		height: 34px;
+		padding: 5px;
+		border-radius: 50px;
+	}
+
+	#lyrics > h2 {
+		display: none;
+	}
+
+	footer {
+		align-self: center;
+	}
+
+	#about {
+		display: none;
+	}
+
+	#aboutFooter {
+		margin-top: 20px;
+	}
+
+	.about-button > a {
+		text-decoration: none;
+		color: #432E41;
+	}
+
+	.about-button {
+		font-size: .8em;
+		font-family: 'Viga', sans-serif;
+		background: #DA5D52;
+		color: #432E41;
+		padding: 7px;
+		border: 1px solid #FFF;
+		outline: none;
+		margin: 10px;
+		margin-top: 40px;
+	}
+
+	.about-button:hover {
+		box-shadow: 1px 1px 5px #000;
+	}
+
+	.about-button:active {
+		box-shadow: none;
+	}
+
 }
 
 aside {
@@ -135,12 +384,12 @@ aside {
 	background-repeat: all;
 	background-position: center;
 	background-blend-mode: saturation;
+	font-family: 'Cantarell', sans-serif;
 }
 
 footer {
 	grid-area: footer;
 	font-family: 'Cantarell', sans-serif;
-	align-self: center;
 }
 
 #searchArea {
@@ -150,10 +399,7 @@ footer {
 }
 
 .feedback-icon {
-	height: 34px;
 	background: #CCCCCC;
-	padding: 5px;
-	border-radius: 50px;
 }
 
 #soundcloud {
@@ -170,12 +416,7 @@ footer {
 	margin-right: 20px;
 }
 
-#feedbackArea {
-	margin-bottom: 20px;
-}
-
 input {
-	padding: 10px;
 	font-size: 1.3em;
 	font-family: 'Viga', sans-serif;
 	color: #432E41;
@@ -183,23 +424,18 @@ input {
 	border: 2px solid #DA5D52;
 	border-radius: 60px;
 	outline: none;
-	text-indent: 20px;
+	text-indent: 15px;
 	padding-right: 45px;
-	width: 250px;
 	margin-top: 30px;
 	margin-bottom: 20px;
 }
 
 #searchTermButton {
-	padding: 11px;
 	background: #DA5D52;
 	border-top-right-radius: 60px;
 	border-bottom-right-radius: 60px;
 	outline: none;
 	border: none;
-	margin-left: -40px;
-	padding-top: 9px;
-	padding-bottom: 17px;
 }
 
 #searchTermButton:hover {
@@ -219,7 +455,6 @@ input {
 }
 
 #coverArt > img {
-	margin: 5px;
 	box-shadow: 2px 2px 2px #000000;
 }
 
@@ -230,11 +465,16 @@ input {
 h4 {
 	font-family: 'Cantarell', sans-serif;
 	color: #432E41;
-	font-size: 1.4em;
 }
 
 #playlistArea {
 	grid-area: playlistArea;
+}
+
+#tracks > button {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #playerButtons {
@@ -279,6 +519,25 @@ h4 {
 
 #menuCollapse > img {
 	height: 30px;
+}
+
+#lyrics > h5 {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+#lyrics > p {
+	line-height: 1.4;
+}
+
+#lyrics > a {
+	color: #EB524A;
+	display: block;
+	text-align: center;
+}
+
+#lyrics > a:visited {
+	color: #27D0B9;
 }
 
 .center {

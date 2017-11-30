@@ -28,7 +28,6 @@ var musicPlayer = {
 	},
 	processLyrics: function(data) {
 		var arr = data.message.body.track_list;
-		
 		if (arr.length > 0) {
 			this.hasLyrics = !this.hasLyrics;
 			for (let i=0; i<arr.length; i++) {
@@ -97,10 +96,12 @@ var musicPlayer = {
 		this.playlist.push(options[0]);
 
 		console.log(this.playlist);
-
 		this.resetProperties();
 
-		controller.updatePlayer();
+		if (this.playlist[0][0]) {
+			controller.updatePlayer();
+		}
+		
 	},
 	shiftTracks: function() {
 		if (arguments[0]) {
@@ -112,6 +113,7 @@ var musicPlayer = {
 		view.populatePlayer();
 		view.updatePlaylist();
 		view.displayLyrics();
+		view.changeFocus('#searchTermInput');
 
 		var track = '/tracks/' + this.currentTrack[0][1]['id'];
 
@@ -154,6 +156,7 @@ var controller = {
 		input.addEventListener('keyup', function(e) {
 			if (e.keyCode == 13) {
 				controller.startSearch();
+				view.changeFocus('#searchTermButton');
 			}
 		});
 	},
@@ -180,6 +183,7 @@ var controller = {
 	newSearch: function() {
 		view.hideElement('#player');
 		view.showElement('#searchArea');
+		view.changeFocus('#searchTermInput');
 	},
 	updatePlayer: function() {
 		view.brightenIcons();
@@ -189,13 +193,22 @@ var controller = {
 				musicPlayer.shiftTracks();
 			} else {
 				view.updatePlaylist();
-				view.hideElement('#searchArea');
-				view.showElement('#player', 'grid');
+
+				if (document.querySelector('body').offsetWidth < 801) {
+					view.hideElement('#searchArea');
+					view.showElement('#player', 'grid');
+				}
 			}
-		}, 2500);
+		}, 1500);
 	},
 	shiftTracks: function(index) {
 		musicPlayer.shiftTracks(index);
+		this.pause();
+		view.changeFocus('#searchTermInput');
+
+		setTimeout(function() {
+			controller.play();
+		}, 1000);
 	},
 	play: function() {
 		musicPlayer.audioPlayer.play();
@@ -217,7 +230,7 @@ var view = {
 		setTimeout(function() {
 			view.dimIcon(soundcloud);
 			view.dimIcon(musixmatch);
-		}, 700);
+		}, 1200);
 		
 	},
 	dimIcon: function(icon) {
@@ -254,10 +267,8 @@ var view = {
 
 		return newElement;
 	},
-	applyWaveformBackground: function() {
-		
-	},
 	populatePlayer: function() {
+		this.clearPlayer();
 		var coverArt = document.getElementById('coverArt');
 		var songTitle = document.getElementById('songTitle');
 		songTitle.innerHTML = musicPlayer.currentTrack[0][0]['title'];
@@ -266,7 +277,7 @@ var view = {
 							musicPlayer.currentTrack[0][1]['title']
 			);
 
-		if (document.querySelector('body').offsetWidth < 800) {
+		if (document.querySelector('body').offsetWidth < 801) {
 			this.hideElement('#searchArea');
 			this.showElement('#player', 'grid');	
 		}
@@ -324,6 +335,9 @@ var view = {
 		lyricsArea.appendChild(h5);
 		lyricsArea.appendChild(p);
 		lyricsArea.appendChild(a);
+	},
+	changeFocus: function(element) {
+		$(element).focus();
 	}
 };
 
@@ -332,6 +346,7 @@ SC.initialize({
 });
 
 controller.startListeners();
+view.changeFocus('#searchTermInput');
 
 function processLyricsSearch(data) {
 	musicPlayer.processLyrics(data);
