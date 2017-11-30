@@ -1,4 +1,10 @@
-var key = 'd91e6ac977972cb40004b439e314009c';
+/*
+
+Thaddeus McCleary
+IS_LT 7356 - Interactive Web Design with JavaScript
+Course Project
+
+*/
 
 // object that contains methods and properties for accessing and displaying lyrics
 var lyrics = {
@@ -7,6 +13,7 @@ var lyrics = {
 	// iterator to constrain the second API requests for lyrics
 	count: 0,
 	// the first API call to find IDs for tracks by Coldplay
+	// requirement 6 - use of AJAX
 	search: function() {
 		var url = 'https://api.musixmatch.com/ws/1.1/track.search?format=jsonp&q_artist=coldplay&callback=processSearch&quorum_factor=1&apikey=d91e6ac977972cb40004b439e314009c';
 
@@ -81,6 +88,10 @@ var lyrics = {
 	listener: function() {
 		$('#loadLyricsButton').on('click', function() {
 			lyrics.search();
+			// requirement 5 - jQuery UI effect
+			$(this).toggle('slide', {
+				direction: 'up'
+			});
 		});
 	}
 };

@@ -1,9 +1,19 @@
+<!--
+
+Thaddeus McCleary
+IS_LT 7356 - Interactive Web Design with JavaScript
+Course Project
+
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
+	<!-- mobile responsiveness -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Making Connections | Find Lyrics</title>
+	<!-- stylesheet shared between most pages -->
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link href="https://fonts.googleapis.com/css?family=Cantarell%7CViga%7CUbuntu+Mono" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="libraries/styles/rainbow.css">
@@ -12,10 +22,12 @@
 	<script type="text/javascript" src="libraries/jquery-ui/jquery-ui.min.js"></script>
 	<script src="https://connect.soundcloud.com/sdk/sdk-3.3.0.js"></script>
 	<script type="text/javascript" src="libraries/highlight.pack.js"></script>
+	<!-- Embedded JavaScript for syntax highlights -->
 	<script>hljs.initHighlightingOnLoad();</script>
 </head>
 <body onresize="ui.getIdealWidth()">
 	<div class="container">
+		<!-- clear and concise navigation -->
 		<header>
 			<h1>Combining APIs</h1>
 			<aside>
@@ -64,9 +76,10 @@
 			</div>
 		</main>
 		<footer>
-			<h5>Thaddeus McCleary - 2017</h5>
+			<h5>Thaddeus McCleary - ISLT 7356 - Interactive Web Design with JavaScript</h5>
 		</footer>
 	</div>
+	<!-- external JavaScript files -->
 	<script type="text/javascript" src="js/main.js"></script>
 	<script type="text/javascript" src="js/find_lyrics.js"></script>
 </body>

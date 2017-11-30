@@ -1,23 +1,14 @@
-// musixmatch key d91e6ac977972cb40004b439e314009c
-// soundcloud id Ka5PHrXNLn7Hf0LUAOovYYsMVKyCGQwG
+/*
 
-// function process(data) {
-// 	console.log(data);
-// }
+Thaddeus McCleary
+IS_LT 7356 - Interactive Web Design with JavaScript
+Course Project
 
-// var request = document.createElement('script');
+*/
 
-// request.setAttribute('src', 'https://api.musixmatch.com/ws/1.1/track.search?format=jsonp&callback=process&q_artist=iron%20and%20wine&quorum_factor=1&apikey=d91e6ac977972cb40004b439e314009c');
-
-// document.querySelector('body').appendChild(request);
-
-
-SC.initialize({
-	client_id: 'Ka5PHrXNLn7Hf0LUAOovYYsMVKyCGQwG'
-});
-
-
+// object with view properties and methods
 var ui = {
+	// controls state of mobile navigation menu
 	iconDisplay: false,
 	toggleMenu: function() {
 
@@ -30,6 +21,7 @@ var ui = {
 			this.hideMenu();
 		}
 	},
+	// slide effect for mobile navigation menu
 	hideMenu: function() {
 		// requirement 4 - jQuery animation
 		$('aside').slideUp(400, function() {
@@ -46,10 +38,10 @@ var ui = {
 	getIdealWidth() {
 		var body = document.querySelector('body');
 
-
 		var pre = document.querySelectorAll('pre');
 		var iframe = document.querySelector('iframe');
 		
+		// modifies the width of pre elements for better user experience
 		if (pre) {
 			var newWidth = body.offsetWidth;
 			var fixedWidth = 850;
@@ -64,6 +56,7 @@ var ui = {
 			}
 		}
 
+		// modifies the size of iframe elements (Youtube) for better user experience
 		if (iframe) {
 
 			var height = iframe.getAttribute('height');
@@ -86,4 +79,10 @@ var ui = {
 	}
 };
 
+// requirement for the Soundcloud SDK
+SC.initialize({
+	client_id: 'Ka5PHrXNLn7Hf0LUAOovYYsMVKyCGQwG'
+});
+
+// sets ideal width for pre and iframe elements on page load
 ui.getIdealWidth();

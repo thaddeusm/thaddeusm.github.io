@@ -1,8 +1,17 @@
+/*
+
+Thaddeus McCleary
+IS_LT 7356 - Interactive Web Design with JavaScript
+Course Project
+
+*/
+
+// object to control Soundcloud SDK integration
 var stream = {
 	track: '',
 	player: '',
 	findSound: function() {
-		// searching soundcloud for tracks related to coldplay
+		// searching soundcloud for tracks related to Coldplay
 		SC.get('/tracks', {
 			q: 'coldplay', license: 'cc-by-sa'
 			// then, the first track is isolated
@@ -30,4 +39,5 @@ var stream = {
 	}
 };
 
+// begins GET request on page load
 stream.findSound();

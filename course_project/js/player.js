@@ -1,3 +1,13 @@
+/*
+
+Thaddeus McCleary
+IS_LT 7356 - Interactive Web Design with JavaScript
+Course Project
+
+*/
+
+
+// the model object of the player application
 var musicPlayer = {
 	playlist: [],
 	lyricResults: [],
@@ -8,6 +18,7 @@ var musicPlayer = {
 	hasLyrics: false,
 	hasStream: false,
 	count: 0,
+	// AJAX - GET request via Soundcloud SDK
 	findStream: function() {
 		SC.get('/tracks', {
 			q: this.searchTerm
@@ -15,6 +26,7 @@ var musicPlayer = {
 			musicPlayer.processStreams(tracks);
 		});
 	},
+	// AJAX - GET request with JSONP for music info from Musixmatch
 	findLyrics: function() {
 		var baseUrl =  'https://api.musixmatch.com/ws/1.1/track.search?format=jsonp&callback=processLyricsSearch&quorum_factor=1&apikey=d91e6ac977972cb40004b439e314009c&q_track_artist=';
 
@@ -26,7 +38,10 @@ var musicPlayer = {
 		var body = document.querySelector('body');
 		body.appendChild(script);
 	},
+	// selects data from Musixmatch response for use in the player
 	processLyrics: function(data) {
+		console.log('Response from Musixmatch:');
+		console.log(data);
 		var arr = data.message.body.track_list;
 		if (arr.length > 0) {
 			this.hasLyrics = !this.hasLyrics;
@@ -46,6 +61,7 @@ var musicPlayer = {
 		}
 		this.getLyricText();
 	},
+	// second GET request to Musixmatch for lyrics
 	getLyricText: function() {
 		var baseUrl = 'https://api.musixmatch.com/ws/1.1/track.lyrics.get?format=jsonp&callback=fillInLyrics&apikey=d91e6ac977972cb40004b439e314009c&track_id=';
 
@@ -58,7 +74,10 @@ var musicPlayer = {
 			body.appendChild(script);
 		}
 	},
+	// selects data from Soundcloud response for use in the player
 	processStreams: function(data) {
+		console.log('Response from Soundcloud:');
+		console.log(data);
 		if (data.length > 0) {
 			this.hasStream = !this.hasStream;
 			for (let i=0; i<data.length; i++) {
@@ -72,13 +91,14 @@ var musicPlayer = {
 				});
 			}
 		}
-
+		// validates that tracks have both lyrics and a stream url
 		if (this.hasStream == true && this.hasLyrics == true) {
 			this.filterData();
 		} else {
 			this.resetProperties();
 		}
 	},
+	// looks for matches between the Soundcloud and Musixmatch responses
 	filterData: function() {
 		var options = [];
 
@@ -93,21 +113,28 @@ var musicPlayer = {
 			}
 		}
 
-		this.playlist.push(options[0]);
+		if (options[0]) {
+			this.playlist.push(options[0]);
+		}
 
 		this.resetProperties();
 
 		if (this.playlist[0][0]) {
 			controller.updatePlayer();
+
+			console.log('Result of filter:');
+			console.log(this.playlist[this.playlist.length - 1]);
 		}
 		
 	},
+	// moves a track from the playlist to the player
 	shiftTracks: function() {
 		if (arguments[0]) {
 			this.currentTrack = this.playlist.splice(arguments[0], 1);
 		} else {
 			this.currentTrack = this.playlist.splice(0, 1);
 		}
+		view.toggleButton('playButton', false);
 		view.clearPlayer();
 		view.populatePlayer();
 		view.updatePlaylist();
@@ -122,9 +149,7 @@ var musicPlayer = {
 			console.log(e);
 		});
 	},
-	deleteTrack: function() {
-
-	},
+	// allows for multiple searches to build a playlist
 	resetProperties: function() {
 		this.count = 0;
 		this.lyricResults = [];
@@ -135,11 +160,15 @@ var musicPlayer = {
 	}
 };
 
+// controller object for the player application
 var controller = {
+	// stores state of mobile navigation
 	isCollapsed: false,
+	// runs when a user clicks or presses the enter key in the input
 	startSearch: function() {
 		var input = document.querySelector('input').value;
-
+		// requirement 4 - validation through JavaScript
+		// ensures that input field is not blank when form is submitted
 		if (input.length > 1) {
 			musicPlayer.searchTerm = input;
 			musicPlayer.findLyrics();
@@ -147,9 +176,11 @@ var controller = {
 			document.querySelector('input').value = ' ';
 
 		} else {
+			// keeps the cursor within the input element
 			view.changeFocus('#searchTermInput');
 		}
 	},
+	// sets up event listeners for the application interactions
 	startListeners: function() {
 		var input = document.querySelector('input');
 		input.addEventListener('keyup', function(e) {
@@ -159,8 +190,10 @@ var controller = {
 			}
 		});
 	},
+	// event listener set up only after a track has been added to the player
 	startPlaylistListener: function() {
 		musicPlayer.audioPlayer.on('finish', function() {
+			// allows for autoplay if a user has built a playlist
 			if (musicPlayer.playlist.length > 0) {
 				musicPlayer.shiftTracks();
 				
@@ -170,6 +203,7 @@ var controller = {
 			}
 		});
 	},
+	// toggles the display of the mobile navigation menu
 	toggleMenu: function() {
 		if (this.isCollapsed == false) {
 			view.showPlaylist();
@@ -179,11 +213,13 @@ var controller = {
 
 		this.isCollapsed = !this.isCollapsed;
 	},
+	// used to maximize screen space for mobile devices
 	newSearch: function() {
 		view.hideElement('#player');
 		view.showElement('#searchArea');
 		view.changeFocus('#searchTermInput');
 	},
+	// controllers player state
 	updatePlayer: function() {
 		view.brightenIcons();
 
@@ -200,7 +236,9 @@ var controller = {
 			}
 		}, 1500);
 	},
+	// controls movement of track data in the model and view objects
 	shiftTracks: function(index) {
+
 		musicPlayer.shiftTracks(index);
 		this.pause();
 		view.changeFocus('#searchTermInput');
@@ -209,16 +247,26 @@ var controller = {
 			controller.play();
 		}, 1000);
 	},
+	// controls stream state
 	play: function() {
+		view.toggleButton('pauseButton', false);
+		view.toggleButton('playButton', true);
+
 		musicPlayer.audioPlayer.play();
 		this.startPlaylistListener();
 	},
+	// controls stream state
 	pause: function() {
+		view.toggleButton('pauseButton', true);
+		view.toggleButton('playButton', false);
+
 		musicPlayer.audioPlayer.pause();
 	}
 };
 
+// the view object for the player application
 var view = {
+	// provides feedback if the search was successful
 	brightenIcons: function() {
 		var soundcloud = document.getElementById('soundcloud');
 		var musixmatch = document.getElementById('musixmatch');
@@ -232,12 +280,15 @@ var view = {
 		}, 1200);
 		
 	},
+	// returns feedback icons to original state
 	dimIcon: function(icon) {
 		icon.style.opacity = '.3';
 	},
+	// multipurpose method to control the display of elements
 	hideElement: function(element) {
 		document.querySelector(element).style.display = 'none';
 	},
+	// multipurpose method to control the display of elements
 	showElement: function(element) {
 		if (arguments[1]) {
 			document.querySelector(element).style.display = 'grid';
@@ -245,6 +296,7 @@ var view = {
 			document.querySelector(element).style.display = 'block';
 		}
 	},
+	// multipurpose method to build img elements
 	buildImage: function(source, alt) {
 		if (source == undefined) {
 			source = 'media/generic_image.png';
@@ -256,6 +308,7 @@ var view = {
 		newImage.setAttribute('alt', alt);
 		return newImage;
 	},
+	// multipurpose method to build elements
 	buildContentElement: function(element, content) {
 		var newElement = document.createElement(element);
 		newElement.innerHTML = content;
@@ -266,6 +319,7 @@ var view = {
 
 		return newElement;
 	},
+	// takes data from the model object and places it in the player
 	populatePlayer: function() {
 		this.clearPlayer();
 		var coverArt = document.getElementById('coverArt');
@@ -276,17 +330,20 @@ var view = {
 							musicPlayer.currentTrack[0][1]['title']
 			);
 
+		// differing responses for mobile devices
 		if (document.querySelector('body').offsetWidth < 801) {
 			this.hideElement('#searchArea');
 			this.showElement('#player', 'grid');	
 		}
 	},
+	// clears existing track info from player
 	clearPlayer: function() {
 		var coverArt = document.getElementById('coverArt');
 		var songTitle = document.getElementById('songTitle');
 		songTitle.innerHTML = '';
 		coverArt.innerHTML = '';
 	},
+	// used to hide playlist navigation on mobile
 	hidePlaylist: function() {
 		$('#playlist').slideUp(400, function() {
 			$('html,body').animate({
@@ -295,9 +352,11 @@ var view = {
 		});
 		
 	},
+	// used to show playlist navigation on mobile
 	showPlaylist: function() {
 		$('#playlist').slideDown();
 	},
+	// builds and updates a playlist from the model object
 	updatePlaylist: function() {
 		var playlistArea = document.getElementById('tracks');
 
@@ -312,6 +371,7 @@ var view = {
 			playlistArea.appendChild(button);
 		}
 	},
+	// displays lyric data from the model object
 	displayLyrics: function() {
 		var lyricsArea = document.getElementById('lyrics');
 
@@ -337,20 +397,35 @@ var view = {
 	},
 	changeFocus: function(element) {
 		$(element).focus();
+	},
+	toggleButton: function(buttonId, value) {
+		var button = document.getElementById(buttonId);
+
+		button.disabled = value;
 	}
 };
 
+// requirement for the Soundcloud SDK
 SC.initialize({
 	client_id: 'Ka5PHrXNLn7Hf0LUAOovYYsMVKyCGQwG'
 });
 
+// starts listeners
 controller.startListeners();
+
+// cursor begins on search input
 view.changeFocus('#searchTermInput');
 
+// buttons begin as disabled until a track is loaded in the player
+view.toggleButton('playButton', true);
+view.toggleButton('pauseButton', true);
+
+// callback for first AJAX request to Musixmatch
 function processLyricsSearch(data) {
 	musicPlayer.processLyrics(data);
 }
 
+// callback for second AJAX request to Musixmatch
 function fillInLyrics(data) {
 	var rawLyrics = data.message.body.lyrics.lyrics_body;
 	// removes carriage returns from the string and replaces them with line breaks

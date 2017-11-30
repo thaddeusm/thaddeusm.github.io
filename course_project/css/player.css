@@ -1,3 +1,11 @@
+/*
+
+Thaddeus McCleary
+IS_LT 7356 - Interactive Web Design with JavaScript
+Course Project
+
+*/
+
 * {
 	padding: 0;
 	margin: 0;
@@ -9,12 +17,13 @@ html, body {
 	background: #F5F5F5;
 }
 
+/* media queries control responsive styles */
 @media screen and (min-width: 801px) {
-
+	/* CSS grids used for positioning */
 	main {
 		display: grid;
 		grid-template-columns: 400px 1fr;
-		grid-template-rows: auto auto 50px;
+		grid-template-rows: 20vh 70vh 50px;
 		grid-template-areas: 
 			"aside lyrics"
 			"aside lyrics"
@@ -22,14 +31,14 @@ html, body {
 	}
 
 	aside {
-		height: 95vh;
+		height: 90vh;
 		padding-left: 15px;
 		padding-right: 15px;
 		border-right: 4px solid #27D0B9;
 	}
 
 	footer {
-		height: 5vh;
+		height: 10vh;
 		background: #432E41;
 		color: #CCC;
 		border-right: 4px solid #27D0B9;
@@ -162,7 +171,7 @@ html, body {
 		padding-left: 30%;
 		padding-right: 30%;
 		min-height: 200px;
-		overflow: auto;
+		overflow-y: auto;
 	}
 
 	#lyrics > p {
@@ -190,7 +199,7 @@ html, body {
 	}
 
 	#about {
-		margin-top: 100px;
+		padding-top: 90px;
 	}
 
 	.about-button {
@@ -390,6 +399,8 @@ aside {
 footer {
 	grid-area: footer;
 	font-family: 'Cantarell', sans-serif;
+	padding-left: 20px;
+	padding-right: 20px;
 }
 
 #searchArea {
@@ -538,6 +549,12 @@ h4 {
 
 #lyrics > a:visited {
 	color: #27D0B9;
+}
+
+button:disabled {
+	opacity: .2;
+	box-shadow: none;
+	cursor: not-allowed!important;
 }
 
 .center {
