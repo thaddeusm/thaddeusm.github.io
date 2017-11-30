@@ -147,7 +147,7 @@ var controller = {
 			document.querySelector('input').value = ' ';
 
 		} else {
-			// shake input?
+			view.changeFocus('#searchTermInput');
 		}
 	},
 	startListeners: function() {
@@ -155,7 +155,7 @@ var controller = {
 		input.addEventListener('keyup', function(e) {
 			if (e.keyCode == 13) {
 				controller.startSearch();
-				view.changeFocus('#searchTermButton');
+				view.changeFocus('#searchTermInput');
 			}
 		});
 	},

@@ -144,8 +144,8 @@ html, body {
 		padding-right: 2px;
 		margin-left: 2px;
 		margin-right: 2px;
-		margin-top: 10px;
-		margin-bottom: 10px;
+		margin-top: 20px;
+		margin-bottom: 20px;
 		background: transparent;
 		font-size: 1.1em;
 		cursor: pointer;
@@ -193,11 +193,6 @@ html, body {
 		margin-top: 100px;
 	}
 
-	.about-button > a {
-		text-decoration: none;
-		color: #432E41;
-	}
-
 	.about-button {
 		font-size: 1.1em;
 		font-family: 'Viga', sans-serif;
@@ -207,6 +202,9 @@ html, body {
 		border: 1px solid #432E41;
 		outline: none;
 		margin: 10px;
+		text-decoration: none;
+		color: #432E41;
+		border-radius: 10px;
 	}
 
 	.about-button:hover {
@@ -349,12 +347,7 @@ html, body {
 	}
 
 	#aboutFooter {
-		margin-top: 20px;
-	}
-
-	.about-button > a {
-		text-decoration: none;
-		color: #432E41;
+		margin-top: 50px;
 	}
 
 	.about-button {
@@ -366,7 +359,9 @@ html, body {
 		border: 1px solid #FFF;
 		outline: none;
 		margin: 10px;
-		margin-top: 40px;
+		text-decoration: none;
+		color: #432E41;
+		border-radius: 10px;
 	}
 
 	.about-button:hover {
@@ -386,7 +381,7 @@ aside {
 
 #lyrics {
 	grid-area: lyrics;
-	background-repeat: all;
+	background-repeat: repeat;
 	background-position: center;
 	background-blend-mode: saturation;
 	font-family: 'Cantarell', sans-serif;
