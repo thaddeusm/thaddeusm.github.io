@@ -247,7 +247,7 @@ html, body {
 		background: #CCCCCC;
 		font-family: 'Cantarell', sans-serif;
 		grid-template-rows: auto auto auto;
-		grid-template-columns: auto 1fr auto;
+		grid-template-columns: 1fr 1fr auto;
 		grid-template-areas: 
 			"coverArt  playerButtons playerButtons"
 			"songTitleArea songTitleArea songTitleArea"
@@ -256,17 +256,20 @@ html, body {
 
 	#lyrics {
 		min-height: 110px;
-		padding-left: 15px;
-		padding-right: 15px;
+		padding-left: 20%;
+		padding-right: 20%;
 		padding-top: 20px;
 		margin-bottom: 50px;
 		font-family: 'Cantarell', sans-serif;
 	}
 
+	#coverArt {
+		text-align: center;
+	}
+
 	#coverArt > img {
 		max-height: 100px;
 		margin-top: 10px;
-		margin-left: 10px;
 	}
 
 	#songTitleArea {
