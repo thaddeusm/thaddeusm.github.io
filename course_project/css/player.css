@@ -112,6 +112,7 @@ html, body {
 	input {
 		width: 250px;
 		padding: 15px;
+		border-radius: 60px;
 	}
 
 	#searchTermButton {
@@ -287,8 +288,12 @@ html, body {
 	}
 
 	input {
-		width: 250px;
+		width: 270px;
+		margin-left: 0px;
 		padding: 10px;
+		border-radius: 60px;
+		border-bottom-right-radius: 0;
+		border-top-right-radius: 0;
 	}
 
 	#addMore {
@@ -330,9 +335,9 @@ html, body {
 	}
 
 	#searchTermButton {
-		margin-left: -40px;
-		padding-top: 10px;
-		padding-bottom: 16.5px;
+		margin-left: -5px;
+		padding-top: 9px;
+		padding-bottom: 17px;
 		padding-left: 11px;
 		padding-right: 11px;
 	}
@@ -434,7 +439,6 @@ input {
 	color: #432E41;
 	background: #FFFFFF;
 	border: 2px solid #DA5D52;
-	border-radius: 60px;
 	outline: none;
 	text-indent: 15px;
 	padding-right: 45px;
