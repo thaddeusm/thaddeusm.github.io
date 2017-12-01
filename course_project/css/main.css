@@ -157,10 +157,6 @@ html, body {
 		border-top: 10px solid #CCCCCC;
 		border-bottom: 10px solid #CCCCCC;
 	}
-
-	footer > h5 {
-		font-size: 12px;
-	}
 }
 
 /* precise positioning for medium-sized screens such as tablets */
@@ -282,6 +278,10 @@ footer {
 	padding-left: 20px;
 	padding-right: 20px;
 	text-align: center;
+}
+
+footer > h5 {
+	font-size: .9em;
 }
 
 .center {
