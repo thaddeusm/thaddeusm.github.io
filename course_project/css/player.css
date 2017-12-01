@@ -331,7 +331,7 @@ html, body {
 
 	#searchTermButton {
 		margin-left: -40px;
-		padding-top: 9px;
+		padding-top: 9.5px;
 		padding-bottom: 17px;
 		padding-left: 11px;
 		padding-right: 11px;
@@ -357,15 +357,15 @@ html, body {
 
 	#aboutFooter {
 		margin-top: 50px;
-		margin-bottom: 50px;
+		margin-bottom: 80px;
 	}
 
 	.about-button {
-		font-size: .8em;
+		font-size: 1em;
 		font-family: 'Viga', sans-serif;
 		background: #DA5D52;
 		color: #432E41;
-		padding: 7px;
+		padding: 10px;
 		border: 1px solid #FFF;
 		outline: none;
 		margin: 10px;
