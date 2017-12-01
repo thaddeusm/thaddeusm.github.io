@@ -44,35 +44,44 @@ Course Project
 			<button id="menuButton" type="button" onclick="ui.toggleMenu()"><img src="media/hamburger.svg" alt="Menu Icon"></button>
 		</header>
 		<main>
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/89C3MuwczPE?rel=0" allowfullscreen></iframe>
-			<p class="center">Go ahead, give it a try:</p>
-			<div class="center">
-				<button class="text-button center" id="loadLyricsButton">Load Lyrics</button>
-			</div>
-			<div id="accordion"></div>
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/SEQZxmc68VU" allowfullscreen></iframe>
 			<pre><code class="javascript">
- var track = {
-   // the first API call to find IDs for tracks by Coldplay
-   search: function() {
-     var url = 'https://api.musixmatch.com/ws/1.1/track.search?format=jsonp&q_artist=coldplay&callback=processSearch&quorum_factor=1&apikey=[INSERT YOUR KEY]';
+ // lyrics data structure for the player
+ this.lyricResults.push({
+   'type': 'lyrics',
+   'id': arr[i].track.track_id,
+   'title': arr[i].track.track_name,
+   'artist': arr[i].track.artist_name,
+   'url': arr[i].track.track_share_url,
+   // lyrics will be added to each object in a second call
+   'lyrics': ''
+ });
 
-	 // uses JSONP to avoid cross-domain issues in the browser
-	 var script = document.createElement('script');
-	 script.setAttribute('src', url);
-	 var body = document.querySelector('body');
-	 body.appendChild(script);
-   },
-   ...
- };
+ // stream data structure for the player
+ this.streamResults.push({
+   'type': 'stream',
+   'id': data[i].id,
+   'title': data[i].title,
+   'art': data[i].artwork_url,
+   'url': data[i].permalink_url,
+   'waveform': data[i].waveform_url
+ });
 
- // the callback for the first API request for track IDs
- function processSearch(data) {
-   lyrics.processData(data);
- }
+ // filter to compare results
+ for (let i=0; i < this.lyricResults.length; i++) {
+   let track = this.lyricResults[i]['title'];
+     for (let j=0; j < this.streamResults.length; j++) {
+       let trackTwo = this.streamResults[j]['title'];
+	     if (trackTwo.search(track) != -1) {
+		   options.push([this.lyricResults[i], this.streamResults[j]]);
+		   break;
+		 }
+	 }
+  }
 			</code></pre>
 			<div class="progress-links">
-				<a class="previous" href="3_stream_music.html"><img src="media/arrow-left.svg" alt="left arrow"></a>
-				<a class="next" href="5_cooperate.html"><img src="media/arrow-right.svg" alt="right arrow"></a>
+				<a class="previous" href="5_cooperate.html"><img src="media/arrow-left.svg" alt="left arrow"></a>
+				<a class="next" href="7_the_player.html"><img src="media/arrow-right.svg" alt="right arrow"></a>
 			</div>
 		</main>
 		<footer>
