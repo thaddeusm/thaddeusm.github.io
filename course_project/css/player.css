@@ -259,7 +259,7 @@ html, body {
 		padding-left: 20%;
 		padding-right: 20%;
 		padding-top: 20px;
-		margin-bottom: 50px;
+		padding-bottom: 50px;
 		font-family: 'Cantarell', sans-serif;
 	}
 
@@ -348,6 +348,10 @@ html, body {
 
 	#lyrics > h2 {
 		display: none;
+	}
+
+	#lyrics > a {
+		padding-bottom: 70px;
 	}
 
 	footer {
