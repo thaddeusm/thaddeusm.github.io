@@ -13,6 +13,7 @@ Course Project
 
 html, body {
 	background: #F5F5F5;
+	font-size: 100%;
 }
 
 /* media queries control responsive styles */
