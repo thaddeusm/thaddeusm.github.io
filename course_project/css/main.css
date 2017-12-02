@@ -343,11 +343,11 @@ footer {
 	padding-bottom: 15px;
 }
 
-footer-text {
+.footer-text {
 	font-size: .8em;
 }
 
-footer-text-adjust {
+.footer-text-adjust {
 	font-size: .6em;
 }
 
