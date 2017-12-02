@@ -343,8 +343,12 @@ footer {
 	padding-bottom: 15px;
 }
 
-footer > p {
+footer-text {
 	font-size: .8em;
+}
+
+footer-text-adjust {
+	font-size: .6em;
 }
 
 #simpleSearchArea > button > img {
