@@ -175,6 +175,9 @@ var controller = {
 
 			document.querySelector('input').value = ' ';
 
+			// closes the keyboard tray on mobile devices
+			view.changeFocus('#searchTermButton');
+
 		} else {
 			// keeps the cursor within the input element
 			view.changeFocus('#searchTermInput');
