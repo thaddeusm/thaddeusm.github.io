@@ -116,6 +116,13 @@ html, body {
 		font-family: 'Viga', sans-serif;
 	}
 
+	iframe {
+		margin-right: auto;
+		margin-left: auto;
+		display: block;
+		border: 10px solid #CCCCCC;
+	}
+
 	main { 
 		margin-top: 20px;
 	}
@@ -124,7 +131,13 @@ html, body {
 		display: none;
 	}
 
-	p {
+	iframe {
+		margin-right: auto;
+		margin-left: auto;
+		display: block;
+	}
+
+	main > p {
 		padding-left: 15px;
 		padding-right: 15px;
 		font-size: 1.1em;

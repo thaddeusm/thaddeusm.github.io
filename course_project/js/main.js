@@ -63,7 +63,7 @@ var ui = {
 			var width = iframe.getAttribute('width');
 			var aspectRatio = height / width;
 
-			var newWidth = body.offsetWidth;
+			var newWidth = body.offsetWidth - 10;
 
 			if (newWidth > 1268) {
 				var fixedWidth = 850;
