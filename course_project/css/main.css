@@ -337,6 +337,10 @@ footer {
 	padding-bottom: 15px;
 }
 
+footer > p {
+	font-size: .8em;
+}
+
 #simpleSearchArea > button > img {
 	height: 20px;
 }
