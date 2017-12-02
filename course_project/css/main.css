@@ -116,13 +116,6 @@ html, body {
 		font-family: 'Viga', sans-serif;
 	}
 
-	iframe {
-		margin-right: auto;
-		margin-left: auto;
-		display: block;
-		border: 10px solid #CCCCCC;
-	}
-
 	main { 
 		margin-top: 20px;
 	}
