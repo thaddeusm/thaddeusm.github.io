@@ -87,6 +87,14 @@ html, body {
 		margin-right: auto;
 		border: 10px solid #CCCCCC;
 	}
+
+	.footer-text {
+		font-size: .8em;
+	}
+
+	.footer-text-adjust {
+		font-size: .8em;
+	}
 }
 
 @media screen and (max-width: 1268px) {
@@ -161,6 +169,14 @@ html, body {
 		width: 100%;
 		border-top: 10px solid #CCCCCC;
 		border-bottom: 10px solid #CCCCCC;
+	}
+
+	.footer-text {
+		font-size: .8em;
+	}
+
+	.footer-text-adjust {
+		font-size: .5em;
 	}
 }
 
@@ -341,14 +357,6 @@ footer {
 	margin-left: -40px;
 	padding-top: 12px;
 	padding-bottom: 15px;
-}
-
-.footer-text {
-	font-size: .8em;
-}
-
-.footer-text-adjust {
-	font-size: .5em;
 }
 
 #simpleSearchArea > button > img {
