@@ -38,11 +38,24 @@ var controller = {
 		});
 	},
 	startPresentation: function(choice) {
-		view.hideElement('#keywordChoice');
-		view.showElement('.reveal');
+		presentation.choice = presentation.choices[choice];
+		view.printSlideContent();
 	},
 	loadOptions: function() {
 		presentation.shuffleData();
+	},
+	initSlides: function() {
+		Reveal.initialize({
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+			]
+		});
+	},
+	restart: function() {
+		location.reload(true);
 	}
 };
 
@@ -64,6 +77,46 @@ var view = {
 		first.appendChild(firstButton);
 		second.appendChild(secondButton);
 	},
+	printSlideContent: function() {
+		var slides = document.querySelector('.slides');
+
+		var photoElement = '<img src="' + 
+							presentation.choice['Image Link'] + 
+							'" alt="' + 
+							presentation.choice['Characteristic'] + 
+							'">';
+
+		var photoSlide = this.buildSection(photoElement);
+
+		var quote = presentation.choice['Quote'].replace(/[\n\r]/g, '<br><br>- ');
+
+		var quoteSlide = this.buildSection(quote);
+
+		var prompt = presentation.choice['Personal Prompt'];
+
+		var promptSlide = this.buildSection(prompt);
+
+		var resourceUrl = presentation.choice['Additional Resources'];
+		var resourceLink = '<h3>Additional Resource</h3><br><br><a href="' + resourceUrl + '" target="_blank"><img src="media/link.svg" class="link-icon" alt="link icon"></a>';
+		var resourceSlide = this.buildSection(resourceLink);
+
+		var restartButton = '<h3>Restart</h3><br><br><button type="button" onclick="controller.restart()"><img src="media/return.svg" alt="return icon" class="link-icon"></button>';
+		var restartSlide = this.buildSection(restartButton);
+
+		slides.appendChild(photoSlide);
+		slides.appendChild(quoteSlide);
+		slides.appendChild(promptSlide);
+		slides.appendChild(resourceSlide);
+		slides.appendChild(restartSlide);
+
+		setTimeout(function() {
+			controller.initSlides();
+		}, 500);
+
+		this.hideElement('#keywordChoice');
+		this.displayElement('.reveal');
+
+	},
 	displayElement: function(element) {
 		if (arguments[1]) {
 			document.querySelector(element).style.display = 'grid';
@@ -83,18 +136,14 @@ var view = {
 		button.innerHTML = content;
 
 		return button;
+	},
+	buildSection: function(content) {
+		let section = document.createElement('section');
+		section.innerHTML = content;
+
+		return section;
 	}
 };
-
-
-Reveal.initialize({
-	dependencies: [
-		{ src: 'plugin/markdown/marked.js' },
-		{ src: 'plugin/markdown/markdown.js' },
-		{ src: 'plugin/notes/notes.js', async: true },
-		{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-	]
-});
 
 function init() {
 	Tabletop.init( { key: 'https://docs.google.com/spreadsheets/d/1mtqTFGXCJbnX15p3WYYY8h4MIg9G-UiEwNy16MX5CJ4/edit?usp=sharing',

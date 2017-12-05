@@ -89,6 +89,7 @@
 	border: none;
 	border-radius: 0;
 	cursor: pointer;
+	margin-bottom: 10px;
 }
 
 .choice-button:hover {
@@ -117,7 +118,14 @@
 	}
 }
 
-
 .reveal {
 	display: none;
+}
+
+section > img {
+	width: 400px;
+}
+
+.link-icon {
+	height: 50px;
 }
