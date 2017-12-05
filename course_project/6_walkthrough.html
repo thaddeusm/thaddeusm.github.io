@@ -17,9 +17,9 @@ Course Project
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link href="https://fonts.googleapis.com/css?family=Cantarell%7CViga%7CUbuntu+Mono" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="libraries/styles/rainbow.css">
-	<script type="text/javascript" src="libraries/jquery-3.2.1.min.js"></script>
+	<script src="libraries/jquery-3.2.1.min.js"></script>
 	<script src="https://connect.soundcloud.com/sdk/sdk-3.3.0.js"></script>
-	<script type="text/javascript" src="libraries/highlight.pack.js"></script>
+	<script src="libraries/highlight.pack.js"></script>
 	<!-- Embedded JavaScript for syntax highlights -->
 	<script>hljs.initHighlightingOnLoad();</script>
 </head>
@@ -66,9 +66,9 @@ Course Project
  });
 
  // filter to compare results
- for (let i=0; i < this.lyricResults.length; i++) {
+ for (let i=0; i &lt; this.lyricResults.length; i++) {
    let track = this.lyricResults[i]['title'];
-     for (let j=0; j < this.streamResults.length; j++) {
+     for (let j=0; j &lt; this.streamResults.length; j++) {
        let trackTwo = this.streamResults[j]['title'];
 	     if (trackTwo.search(track) != -1) {
 		   options.push([this.lyricResults[i], this.streamResults[j]]);
@@ -87,6 +87,6 @@ Course Project
 		</footer>
 	</div>
 	<!-- external JavaScript file -->
-	<script type="text/javascript" src="js/main.js"></script>
+	<script src="js/main.js"></script>
 </body>
 </html>
