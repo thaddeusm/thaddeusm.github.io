@@ -11,6 +11,7 @@ Original CSS based upon mockups generated during the project planning stage.
 	padding-top: 70px;
 	background: linear-gradient(to right, #2C4254 0%,#2C4254 50%,white 50%,white 100%);
 	text-align: center;
+	cursor: pointer;
 }
 
 /* ensures that the logo stays in the center of the page and does not stretch too wide on large displays */
