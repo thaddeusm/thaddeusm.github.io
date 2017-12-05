@@ -129,3 +129,10 @@ section > img {
 .link-icon {
 	height: 50px;
 }
+
+.restart-button {
+	background: none!important;
+	outline: none!important;
+	outline: none!important;
+	box-shadow: none!important;
+}

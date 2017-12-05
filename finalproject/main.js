@@ -100,7 +100,7 @@ var view = {
 		var resourceLink = '<h3>Additional Resource</h3><br><br><a href="' + resourceUrl + '" target="_blank"><img src="media/link.svg" class="link-icon" alt="link icon"></a>';
 		var resourceSlide = this.buildSection(resourceLink);
 
-		var restartButton = '<h3>Restart</h3><br><br><button type="button" onclick="controller.restart()"><img src="media/return.svg" alt="return icon" class="link-icon"></button>';
+		var restartButton = '<h3>Restart</h3><br><br><button class="restart-button" type="button" onclick="controller.restart()"><img src="media/return.svg" alt="return icon" class="link-icon"></button>';
 		var restartSlide = this.buildSection(restartButton);
 
 		slides.appendChild(photoSlide);
