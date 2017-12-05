@@ -1,3 +1,10 @@
+/* 
+
+Original CSS based upon mockups generated during the project planning stage.
+
+ */
+
+/* starting view a unified design for all screen sizes */
 #start {
 	height: 100%;
 	width: 100%;
@@ -6,6 +13,7 @@
 	text-align: center;
 }
 
+/* ensures that the logo stays in the center of the page and does not stretch too wide on large displays */
 #logo {
 	max-width: 950px;
 	margin-left: auto;
@@ -13,6 +21,7 @@
 	display: block;
 }
 
+/* based upon previously submitted mockups */
 #startButton {
 	color: #FFF;
 	background: #43AFFA;
@@ -28,6 +37,7 @@
 	margin-top: 160px;
 }
 
+/* Psuedo classes provide user feedback for clicks/presses */
 #startButton:hover {
 	box-shadow: 2px 2px 5px #000;
 }
@@ -36,6 +46,7 @@
 	box-shadow: none;
 }
 
+/* user choice view will become a CSS grid through JavaScript DOM manipulation*/
 #keywordChoice {
 	width: 100%;
 	height: 100%;
@@ -43,6 +54,7 @@
 	display: none;
 }
 
+/* styles for elements within the user choice view */
 #firstChoice {
 	grid-area: firstChoice;
 	align-self: center;
@@ -92,12 +104,13 @@
 	margin-bottom: 10px;
 }
 
+/* to preserve minimalistic button design, this psuedo class provides feedback */
 .choice-button:hover {
 	padding-right: 20px;
 	padding-left: 20px;
 }
 
-
+/* media query for small screen sizes */
 @media screen and (max-width: 750px) {
 	#keywordChoice {
 		background: linear-gradient(to top, #2C4254 0%,#2C4254 50%,white 50%,white 100%);
@@ -109,6 +122,7 @@
 	}
 }
 
+/* media query for larger screen sizes, changes background orientation */
 @media screen and (min-width: 751px) {
 	#keywordChoice {
 		background: linear-gradient(to left, #2C4254 0%,#2C4254 50%,white 50%,white 100%);
@@ -118,10 +132,12 @@
 	}
 }
 
+/* hides the (empty) presentation until triggered via JavaScript */
 .reveal {
 	display: none;
 }
 
+/* customizes default styles from the Reveal JS library */
 section > img {
 	width: 400px;
 }
