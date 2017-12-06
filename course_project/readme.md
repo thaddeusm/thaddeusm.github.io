@@ -43,3 +43,7 @@
 # 6
 - at least one
   - js/find_lyrics.js (use of AJAX)
+
+# Notes
+- Trying to stream from Soundcloud locally will result in a warning on Chrome.  Instead, you can run a local node server for testing.
+- Changes were made after you and Jasmine brought up compatibility issues with other browsers.  I have tested the lastest version of my code on Chrome, Safari, and Firefox.
