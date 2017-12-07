@@ -152,4 +152,5 @@ section > img {
 	outline: none!important;
 	outline: none!important;
 	box-shadow: none!important;
+	cursor: pointer;
 }
