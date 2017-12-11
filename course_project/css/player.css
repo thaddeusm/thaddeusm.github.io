@@ -194,6 +194,10 @@ html, body {
 		text-align: center;
 	}
 
+	#lyrics > a {
+		padding-bottom: 70px;
+	}
+
 	#searchArea {
 		padding-top: 70px;
 	}
