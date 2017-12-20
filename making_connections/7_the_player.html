@@ -1,0 +1,71 @@
+<!--
+
+Thaddeus McCleary
+IS_LT 7356 - Interactive Web Design with JavaScript
+Course Project
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<!-- mobile responsiveness -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Making Connections | The Player</title>
+	<!-- external stylesheet specific to player -->
+	<link rel="stylesheet" type="text/css" href="css/player.css">
+	<link href="https://fonts.googleapis.com/css?family=Cantarell%7CViga%7CUbuntu+Mono" rel="stylesheet">
+	<script src="libraries/jquery-3.2.1.min.js"></script>
+	<script src="https://connect.soundcloud.com/sdk/sdk-3.3.0.js"></script>
+</head>
+<body>
+	<main>
+		<aside>
+			<div id="searchArea" class="center">
+				<input type="text" name="searchTerm" id="searchTermInput" placeholder="artist and song">
+				<button type="button" onclick="controller.startSearch()" id="searchTermButton"><img src="media/search.svg" alt="search icon"></button>
+				<div id="feedbackArea" class="center">
+					<img src="media/soundcloud_logo.svg" class="feedback-icon" id="soundcloud" alt="soundcloud icon">
+					<img src="media/add.svg" id="add" alt="plus icon">
+					<img src="media/lyrics.svg" class="feedback-icon" id="musixmatch" alt="musixmatch icon">
+				</div>
+			</div>
+			<div id="player">
+				<div id="coverArt">
+					<img src="media/generic_image.png" alt="Piano">
+				</div>
+				<section id="songTitleArea" class="center">
+					<h4 id="songTitle"></h4>
+				</section>
+				<section id="playlistArea" class="center">
+					<button id="menuCollapse" type="button" onclick="controller.toggleMenu()"><img src="media/hamburger.svg" alt="hamburger icon"></button>
+					<div id="playlist">
+						<h6>Up next:</h6>
+						<div id="tracks">
+							
+						</div>
+						<button id="addMore" onclick="controller.newSearch()" type="button"><img src="media/add.svg" alt="add icon"></button>
+					</div>
+				</section>
+				<div id="playerButtons" class="center">
+					<button id="playButton" type="button" onclick="controller.play()"><img src="media/play.svg" alt="play icon"></button>
+					<button id="pauseButton" onclick="controller.pause()" type="button"><img src="media/pause.svg" alt="pause icon"></button>
+				</div>
+			</div>
+			<div id="about" class="center">
+				<a class="about-button" href="index.html" target="_blank">About</a>
+			</div>
+		</aside>
+		<section id="lyrics"></section>
+		<footer class="center">
+			<h5>Thaddeus McCleary - ISLT 7356<br>Interactive Web Design with JavaScript</h5>
+			<div id="aboutFooter" class="center">
+				<a class="about-button" href="index.html" target="_blank">About</a>
+			</div>
+		</footer>
+	</main>
+	<!-- external JavaScript specific to player-->
+	<script src="js/player.js"></script>
+</body>
+</html>

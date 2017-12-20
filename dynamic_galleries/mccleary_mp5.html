@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Mini Project 5 | Dynamic Galleries</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link href="https://fonts.googleapis.com/css?family=Catamaran|Fjalla+One" rel="stylesheet">
+</head>
+<body>
+	<!-- This provides an input for the user to enter a keyword. -->
+	<section id="galleryBuilder">
+		<input type="text" name="keyword">
+		<button type="button" id="submit" onclick="controller.startKeywordSearch()"><img src="images/check.svg" alt="Check Icon"></button>
+	</section>
+	<!-- This is a wrapper for a CSS3 grid layout. -->
+	<div class="container">
+		<header>
+			<h1>Dynamic Galleries</h1>
+			<!-- This dropdown uses native CSS pseudo classes for large screens. -->
+			<div id="dropdown">
+				<button id="create" type="button">Create Your Own</button>
+				<div id="dropdownContent">
+					<button id="searchButton" type="button" onclick="controller.promptKeyword()">Keyword Search <img src="images/search.svg" alt="Search Icon"></button>
+					<button id="randomButton" onclick="controller.startRandom()" type="button">Random Gallery <img src="images/random.svg" alt="Random Icon"></button>
+				</div>
+			</div>
+		</header>
+		<!-- This section displays the gallery thumbnails. -->
+		<main>
+			<h2>All about <span id="keyword"></span>.</h2>
+			<section id="gallery"></section>
+		</main>
+		<footer>
+			<p>Powered by <a href="https://www.flickr.com/services/api/" target="_blank">Flickr</a></p>
+		</footer>
+	</div>
+	<!-- This lightbox fills the screen and is triggered when a user clicks on a thumbnail. -->
+	<div id="lightbox">
+		<div id="centeredImage"></div>
+		<button id="close" type="button">X</button>	
+	</div>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

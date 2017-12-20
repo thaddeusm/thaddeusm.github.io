@@ -1,0 +1,92 @@
+<!--
+
+Thaddeus McCleary
+IS_LT 7356 - Interactive Web Design with JavaScript
+Course Project
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<!-- mobile responsiveness -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Making Connections | Stream Music</title>
+	<!-- stylesheet shared between most pages -->
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link href="https://fonts.googleapis.com/css?family=Cantarell%7CViga%7CUbuntu+Mono" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="libraries/styles/rainbow.css">
+	<script src="libraries/jquery-3.2.1.min.js"></script>
+	<script src="https://connect.soundcloud.com/sdk/sdk-3.3.0.js"></script>
+	<script src="libraries/highlight.pack.js"></script>
+	<!-- Embedded JavaScript for syntax highlights -->
+	<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body onresize="ui.getIdealWidth()">
+	<div class="container">
+		<!-- clear and concise navigation -->
+		<header>
+			<h1>Making Connections</h1>
+			<aside>
+				<ul>
+					<li><a href="index.html">1. The Concept</a></li>
+					<li><a href="2_the_apis.html">2. The APIs</a></li>
+					<li>3. Stream Music</li>
+					<li><a href="4_find_lyrics.html">4. Find Lyrics</a></li>
+					<li><a href="5_cooperate.html">5. Cooperate</a></li>
+					<li><a href="6_walkthrough.html">6. Walkthrough</a></li>
+					<li><a href="7_the_player.html">7. The Player</a></li>
+				</ul>
+			</aside>
+			<button id="menuButton" type="button" onclick="ui.toggleMenu()"><img src="media/hamburger.svg" alt="Menu Icon"></button>
+		</header>
+		<main>
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/RfhilD_fRaw?rel=0" allowfullscreen></iframe>
+			<p class="center">Go ahead, give it a try:</p>
+			<div id="samplePlayer" class="center">
+				<button onclick="stream.play()" type="button" class="text-button">Play</button>
+				<button onclick="stream.pause()" type="button" class="text-button">Pause</button>
+			</div>
+			<pre><code class="javascript">
+ var stream = {
+   track: '',
+   player: '',
+   play: function() {
+     // searching soundcloud for tracks related to coldplay
+	 SC.get('/tracks', {
+	   q: 'coldplay', license: 'cc-by-sa'
+	     // then, the first track is isolated
+	     }).then(function(tracks) {
+		   // grab track id and format for streaming
+		   // set the track to the property
+		   stream.track = '/tracks/' + tracks[0].id;
+
+		   // initializing the player from SDK
+		   SC.stream(stream.track).then(function(player) {
+		     // setting the player to a object prop
+		     stream.player = player;
+			 // playing the sound
+			 stream.player.play();
+		   });
+	 });
+   },
+   pause: function() {
+     this.player.pause();
+   }
+ };
+			</code></pre>
+			<div class="progress-links">
+				<a class="previous" href="2_the_apis.html"><img src="media/arrow-left.svg" alt="left-arrow"></a>
+				<a class="next" href="4_find_lyrics.html"><img src="media/arrow-right.svg" alt="right arrow"></a>
+			</div>
+		</main>
+		<footer>
+			<p class="footer-text-adjust">Thaddeus McCleary - ISLT 7356<br>Interactive Web Design with JavaScript</p>
+		</footer>
+	</div>
+	<!-- external JavaScript files -->
+	<script src="js/main.js"></script>
+	<script src="js/stream_music.js"></script>
+</body>
+</html>

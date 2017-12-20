@@ -1,0 +1,92 @@
+<!--
+
+Thaddeus McCleary
+IS_LT 7356 - Interactive Web Design with JavaScript
+Course Project
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<!-- mobile responsiveness -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Making Connections | Walkthrough</title>
+	<!-- stylesheet shared between most pages -->
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link href="https://fonts.googleapis.com/css?family=Cantarell%7CViga%7CUbuntu+Mono" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="libraries/styles/rainbow.css">
+	<script src="libraries/jquery-3.2.1.min.js"></script>
+	<script src="https://connect.soundcloud.com/sdk/sdk-3.3.0.js"></script>
+	<script src="libraries/highlight.pack.js"></script>
+	<!-- Embedded JavaScript for syntax highlights -->
+	<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body onresize="ui.getIdealWidth()">
+	<div class="container">
+		<!-- clear and concise navigation -->
+		<header>
+			<h1>Making Connections</h1>
+			<aside>
+				<ul>
+					<li><a href="index.html">1. The Concept</a></li>
+					<li><a href="2_the_apis.html">2. The APIs</a></li>
+					<li><a href="3_stream_music.html">3. Stream Music</a></li>
+					<li><a href="4_find_lyrics.html">4. Find Lyrics</a></li>
+					<li><a href="5_cooperate.html">5. Cooperate</a></li>
+					<li>6. Walkthrough</li>
+					<li><a href="7_the_player.html">7. The Player</a></li>
+				</ul>
+			</aside>
+			<button id="menuButton" type="button" onclick="ui.toggleMenu()"><img src="media/hamburger.svg" alt="Menu Icon"></button>
+		</header>
+		<main>
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/SEQZxmc68VU" allowfullscreen></iframe>
+			<pre><code class="javascript">
+ // lyrics data structure for the player
+ this.lyricResults.push({
+   'type': 'lyrics',
+   'id': arr[i].track.track_id,
+   'title': arr[i].track.track_name,
+   'artist': arr[i].track.artist_name,
+   'url': arr[i].track.track_share_url,
+   // lyrics will be added to each object in a second call
+   'lyrics': ''
+ });
+
+ // stream data structure for the player
+ this.streamResults.push({
+   'type': 'stream',
+   'id': data[i].id,
+   'title': data[i].title,
+   'art': data[i].artwork_url,
+   'url': data[i].permalink_url,
+   'waveform': data[i].waveform_url
+ });
+
+ // filter to compare results
+ for (let i=0; i &lt; this.lyricResults.length; i++) {
+   let track = this.lyricResults[i]['title'];
+     for (let j=0; j &lt; this.streamResults.length; j++) {
+       let trackTwo = this.streamResults[j]['title'];
+	     if (trackTwo.search(track) != -1) {
+		   options.push([this.lyricResults[i], this.streamResults[j]]);
+		   break;
+		 }
+	 }
+  }
+			</code></pre>
+			<div class="progress-links">
+				<a class="previous" href="5_cooperate.html"><img src="media/arrow-left.svg" alt="left arrow"></a>
+				<a class="next" href="7_the_player.html"><img src="media/arrow-right.svg" alt="right arrow"></a>
+			</div>
+		</main>
+		<footer>
+			<p class="footer-text-adjust">Thaddeus McCleary - ISLT 7356<br>Interactive Web Design with JavaScript</p>
+		</footer>
+	</div>
+	<!-- external JavaScript file -->
+	<script src="js/main.js"></script>
+</body>
+</html>

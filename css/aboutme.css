@@ -80,7 +80,7 @@ p {
 	box-shadow: 0px 2px 0px #C8C8C8;
 }
 
-#assignments {
+#projects {
 	border-bottom: 1px solid black;
 	border-top: 0;
 	border-left: 0;
@@ -92,7 +92,7 @@ p {
 	min-width: 137px;
 }
 
-#assignments:hover {
+#projects:hover {
 	box-shadow: 0px 2px 0px #C8C8C8;
 }
 

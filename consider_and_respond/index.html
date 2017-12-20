@@ -1,0 +1,56 @@
+<!--
+
+This single page works as a template for data that is received from a Google Sheet, using a JavaScript library called Tabletop JS.  Additionally, through a user interaction, specific data is passed into a JavaScript library for HTML presentations called Reveal JS.
+
+-->
+
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Consider and Respond</title>
+		<!-- original stylesheet for initial user interactions -->
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<!-- default styles from the Reveal JS library -->
+		<link rel="stylesheet" href="css/reveal.css">
+		<!-- base theme from the Reveal JS library -->
+		<link rel="stylesheet" href="css/theme/black.css">
+		<!-- custom Google fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Barlow%7CSource+Sans+Pro" rel="stylesheet">
+		<!-- Tabletop JS integration -->
+		<script type="text/javascript" src="plugin/tabletop.min.js"></script>
+	</head>
+	<body>
+		<!-- the body is organized into views, following a single-page application standard -->
+		<!-- first (start) screen -->
+		<div id="start">
+			<img id="logo" src="media/logo.svg" alt="logo">
+			<button id="startButton">start</button>
+		</div>
+		<!-- second screen (the user chooses a topic) -->
+		<div id="keywordChoice">
+			<!-- two choices are randomly pulled from the database and presented to the user via JavaScript DOM manipulation -->
+			<div id="firstChoice">
+				
+			</div>
+			<section id="or">
+				<h3>or</h3>
+			</section>
+			<div id="secondChoice">
+				
+			</div>
+		</div>
+		<!-- the presentation that is built according to the user's choice -->
+		<div class="reveal">
+			<div class="slides">
+				
+			</div>
+		</div>
+		<!-- Reveal JS integration -->
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<!-- original MVC application to handle integration between the two JS libraries and user interactions -->
+		<script src="main.js"></script>
+	</body>
+</html>

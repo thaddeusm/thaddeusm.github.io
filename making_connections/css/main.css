@@ -1,0 +1,383 @@
+/*
+
+Thaddeus McCleary
+IS_LT 7356 - Interactive Web Design with JavaScript
+Course Project
+
+*/
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+html, body {
+	background: #F5F5F5;
+}
+
+/* media queries control responsive styles */
+@media screen and (min-width: 1351px) {
+	/* CSS grids are used to control positioning */
+	.container {
+		display: grid;
+		height: 100%;
+		width: 100%;
+		grid-template-columns: 25% 1fr;
+		grid-template-rows: auto 1fr 100px;
+		grid-template-areas: 
+			"header main"
+			"header main"
+			"header footer";
+	}
+
+	header {
+		grid-area: header;
+		align-self: center;
+		text-align: center;
+		min-height: 100vh;
+		height: 100%;
+		width: 100%;
+		max-width: 400px;
+		background: #432E41;
+		color: #F5F5F5;
+		padding-top: 100px;
+		border-right: 4px solid #27D0B9;
+		overflow: auto;
+	}
+
+	h1 {
+		margin-top: 45px;
+		margin-bottom: 45px;
+		font-size: 2.2em;
+		font-family: 'Viga', sans-serif;
+	}
+
+	main { 
+		padding-top: 40px;
+		padding-left: 10%;
+		padding-right: 10%;
+		overflow-y: scroll;
+	}
+
+	li {
+		text-align: left;
+		padding-left: 22%;
+	}
+
+	p {
+		font-size: 1.3em;
+	}
+
+	#menuButton {
+		display: none;
+	}
+
+	.icon-bar > img {
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+
+	iframe {
+		margin-right: auto;
+		margin-left: auto;
+		display: block;
+		border: 10px solid #CCCCCC;
+	}
+
+	pre {
+		width: 70%;
+		margin-left: auto;
+		margin-right: auto;
+		border: 10px solid #CCCCCC;
+	}
+
+	.footer-text {
+		font-size: .8em;
+	}
+
+	.footer-text-adjust {
+		font-size: .8em;
+	}
+}
+
+@media screen and (max-width: 1350px) {
+	.container {
+		display: grid;
+		grid-template-columns:1fr;
+		grid-template-rows: auto 1fr 100px;
+		grid-template-areas: 
+			"header"
+			"main"
+			"footer";
+	}
+
+	header {
+		grid-area: header;
+		align-self: center;
+		background: #432E41;
+		color: #F5F5F5;
+		padding-top: 30px;
+		text-align: center;
+		padding-bottom: 30px;
+		border-bottom: 4px solid #27D0B9;
+	}
+
+	h1 {
+		font-size: 2.2em;
+		font-family: 'Viga', sans-serif;
+	}
+
+	main { 
+		margin-top: 20px;
+	}
+
+	aside {
+		display: none;
+	}
+
+	iframe {
+		margin-right: auto;
+		margin-left: auto;
+		display: block;
+	}
+
+	main > p {
+		padding-left: 15px;
+		padding-right: 15px;
+		font-size: 1.1em;
+	}
+
+	li {
+		text-align: center;
+	}
+
+	#menuButton {
+		background: none;
+		outline: none;
+		border: none;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 20px;
+		cursor: pointer;
+		padding-top: 3px;
+		border: 1px solid #432E41;
+	}
+
+	#menuButton > img {
+		height: 30px;
+	}
+
+	pre {
+		width: 100%;
+		border-top: 10px solid #CCCCCC;
+		border-bottom: 10px solid #CCCCCC;
+	}
+
+	.footer-text {
+		font-size: .8em;
+	}
+
+	.footer-text-adjust {
+		font-size: .5em;
+	}
+}
+
+/* precise positioning for medium-sized screens such as tablets */
+@media screen and (min-width: 601px) and (max-width: 700px) {
+	.icon-bar > img {
+		padding-left: 120px;
+		padding-right: 120px;
+	}
+}
+
+@media screen and (min-width: 400px) and (max-width: 600px) {
+	.icon-bar > img {
+		padding-left: 100px;
+		padding-right: 100px;
+	}
+}
+
+@media screen and (max-width: 399px) {
+	.icon-bar > img {
+		padding-left: 50px;
+		padding-right: 50px;
+	}
+}
+
+h3 {
+	font-family: 'Cantarell', sans-serif;
+	color: #CCCCCC;
+}
+
+h5 {
+	font-family: 'Cantarell', sans-serif;
+}
+
+main {
+	grid-area: main;
+	line-height: 1.6;
+}
+
+.icon-bar {
+	text-align: center;
+	background: #CCCCCC;
+}
+
+.icon-bar > img {
+	margin: 50px;
+	height: 60px;
+}
+
+#plusIcon {
+	height: 25px!important;
+	margin-bottom: 65px!important;
+}
+
+p {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	font-family: 'Cantarell', sans-serif;
+}
+
+p > a {
+	color: #EB524A;
+}
+
+p > a:visited {
+	color: #27D0B9;
+}
+
+ul {
+	list-style: none;
+}
+
+li {
+	margin-top: 25px;
+	line-height: 2.4;
+	font-size: 1.7em;
+	color: #FFFFFF;
+	font-family: 'Cantarell', sans-serif;
+}
+
+li > a {
+	color: #CCCCCC;
+	text-decoration: none;
+	border-bottom: 1px solid #DA5D52;
+}
+
+li > a:hover {
+	color: #FFFFFF;
+}
+
+li > a:visited {
+	color: #CCCCCC;
+	border-bottom: 1px solid #DA5D52;
+}
+
+.progress-links {
+	margin-top: 40px;
+	margin-bottom: 5px;
+	padding-right: 50px;
+	padding-left: 50px;
+}
+
+.next {
+	float: right;
+}
+
+pre {
+	white-space: pre-wrap;
+  	font-size: 1.2em;
+  	width: 150px;
+  	font-family: 'Ubuntu Mono', monospace;
+  	margin-top: 30px;
+  	margin-bottom: 30px;
+  	-webkit-overflow-scrolling: touch;
+}
+
+footer {
+	grid-area: footer;
+	align-self: center;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+}
+
+.center {
+	text-align: center;
+}
+
+.text-button {
+	font-size: 1.3em;
+	font-family: 'Viga', sans-serif;
+	background: #27D0B9;
+	color: #432E41;
+	padding: 10px;
+	border: 1px solid #F5F5F5;
+	outline: none;
+	margin: 10px;
+}
+
+.text-button:hover {
+	box-shadow: 1px 1px 5px #432E41;
+}
+
+.text-button:active {
+	box-shadow: none;
+}
+
+#accordion {
+	margin-top: 40px;
+}
+
+#simpleSearchArea > input {
+	padding: 10px;
+	font-size: 1.3em;
+	font-family: 'Viga', sans-serif;
+	color: #432E41;
+	background: #FFFFFF;
+	border: 2px solid #CCCCCC;
+	border-radius: 80px;
+	outline: none;
+	text-indent: 20px;
+	padding-right: 45px;
+	width: 250px;
+	margin-top: 30px;
+	margin-bottom: 50px;
+}
+
+#simpleSearchArea > button {
+	padding: 11px;
+	background: #27D0B9;
+	border-top-right-radius: 80px;
+	border-bottom-right-radius: 80px;
+	outline: none;
+	border-right: 2px solid #432E41;
+	border-top: 2px solid #432E41;
+	border-left: 1px solid #432E41;
+	border-bottom: 2px solid #432E41;
+	margin-left: -40px;
+	padding-top: 12px;
+	padding-bottom: 15px;
+}
+
+#simpleSearchArea > button > img {
+	height: 20px;
+}
+
+#simpleSearchArea > button:hover {
+	box-shadow: 2px 1px 5px #CCCCCC;
+}
+
+#simpleSearchArea > button:active {
+	box-shadow: none;
+}
+
+.dim {
+	opacity: .3;
+}
+
+.strong {
+	opacity: 1;
+}
