@@ -34,9 +34,6 @@ blockquote {
 		margin-left: 8%;
 	}
 
-	ul {
-		list-style-position: inside;
-	}
 }
 
 @media screen and (min-width: 900px) {
@@ -143,4 +140,12 @@ form {
 #footerText {
 	text-align: center;
 	font-size: .8em;
+}
+
+a > img {
+	vertical-align: middle;
+}
+
+ul {
+	list-style: none;
 }
